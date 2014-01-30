@@ -2,11 +2,13 @@ window.onload = function() {
 
     var artworks = document.querySelectorAll('.artwork');
     for (var a in artworks) {
-        var element = artworks[a];
-        var source = element.querySelector('img').src;
-        var paper = element.querySelector('svg');
-        var colour = element.dataset.colour;
-        maskArtwork(paper, source, colour);
+        if (typeof artworks[a] == "object") {
+            var element = artworks[a];
+            var source = element.querySelector('img').src;
+            var paper = element.querySelector('svg');
+            var colour = element.dataset.colour;
+            maskArtwork(paper, source, colour);         
+        }
     }
 
     function maskArtwork(element, source, colour) {
@@ -34,11 +36,12 @@ window.onload = function() {
             window.setTimeout(function() {
                 polygonHighlight.animate({ strokeOpacity: 1 }, 300);
             }, 300);
-            
         }, function() {
-            polygon.animate({ r: 180 }, 300, mina.easeinout);
-            polygonHighlight.animate({ strokeOpacity: 0 }, 30);
-            document.body.style.backgroundColor = '#fafafa';
+            window.setTimeout(function() {
+                polygon.animate({ r: 180 }, 300, mina.easeinout);
+                polygonHighlight.animate({ strokeOpacity: 0 }, 30);
+                document.body.style.backgroundColor = '#fafafa';
+            }, 20);
         });
 
     }
