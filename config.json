@@ -6,7 +6,8 @@
     "description": "Interaction Designer"
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator.coffee",
+    "./plugins/portflolio.coffee"
   ],
   "require": {
     "moment": "moment",

@@ -29,6 +29,25 @@ a:hover {
   text-decoration: underline;
 }
 
+nav {
+    font-size: 1em;
+    text-align: center;
+    overflow: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+nav a:link, nav a:visited {
+    color: #666;
+    text-decoration: none;
+    margin: 0 2em;
+    display: inline-block;
+}
+
+nav a.active, nav a:hover {
+    border-bottom: 5px solid #666;
+}
+
 p {
   margin-bottom: 1.52em;
 }
@@ -95,7 +114,7 @@ hr {
 }
 
 .header {
-  margin: 3em 0 5em;
+  margin: 3em 0 2em 0;
 }
 
 .header h1 {
@@ -240,6 +259,38 @@ footer .copy, footer .copy a {
   font-weight: 400;
   text-rendering: auto;
   letter-spacing: 1px;
+}
+
+/* portfolio */
+
+svg.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.artwork_container {
+    width: 500px;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.artwork {
+    width: 500px;
+    height: 500px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    margin: 0 50px;
+}
+
+.artwork > img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    visibility: hidden;
 }
 
 /* archive */
@@ -398,6 +449,9 @@ code.lang-markdown .bullet {
   body { font-size: 26px; }
   .logo .emblem {
     width: 140px;
+  }
+  .artwork_container {
+    width: 1200px;
   }
 }
 

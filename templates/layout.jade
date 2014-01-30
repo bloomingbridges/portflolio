@@ -23,6 +23,7 @@ html(lang='en')
               img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
               a(href=locals.url)= locals.name
             p.description= locals.description
+          include ../contents/nav.jade
     div#content
       div.content-wrap
         block content

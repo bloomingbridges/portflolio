@@ -1,0 +1,61 @@
+doctype html
+block vars
+  - var bodyclass = null;
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+      meta(name='viewport', content='width=device-width')
+      title
+        block title
+          = locals.name
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic')
+      link(rel='stylesheet', href='/css/main.css')
+  body(class=bodyclass)
+    header.header
+      div.content-wrap
+        block header
+          div.logo
+            h1
+              img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
+              a(href=locals.url)= locals.name
+            p.description= locals.description
+          include ../contents/nav.jade
+    section.artwork_container
+      div(class="artwork", data-colour="rgb(0,38,45)")
+        img(id="pulse_mode", src="/portfolio/pulse_mode.jpg")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="rgb(154,0,216)")
+        img(id="flask", src="/portfolio/flask.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#020c43")
+        img(id="in_cubus", src="/portfolio/in_cubus.jpg")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#5d76b6")
+        img(id="chemistry", src="/portfolio/chemistry.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#1fadff")
+        img(id="aquanetix_admin", src="/portfolio/aquanetix/aquanetix_admin.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#3b3b3b")
+        img(id="aquanetix_notifier", src="/portfolio/aquanetix/aquanetix_notifier.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#f87b6e")
+        img(id="stonesoup", src="/portfolio/stone_soup_branding.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#0064d7")
+        img(id="luavision", src="/portfolio/lua-vision-logo.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#ffe999")
+        img(id="lowpolyheart", src="/portfolio/lowpolyhearts.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#64a3fc")
+        img(id="vacant", src="/portfolio/vacant_space.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+      div(class="artwork", data-colour="#3a4899")
+        img(id="deadlypressure", src="/portfolio/deadly_pressure_points.png")
+        svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
+
+    script(src="js/vendor/snap.svg-min.js")
+    script(src="js/artwork.js")
