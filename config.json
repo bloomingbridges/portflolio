@@ -23,5 +23,9 @@
   },
   "paginator": {
     "perPage": 1
-  }
+  },
+  "portflolio": {
+    "artworks": "portfolio"
+  },
+  "ignore": ["**/.DS_Store"]
 }

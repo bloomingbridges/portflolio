@@ -1,0 +1,21 @@
+
+extends layout
+
+block append vars
+  - bodyclass = 'artwork-detail'
+
+block prepend title
+  | #{ page.title + " - "}
+
+block header
+  include author
+  h1= page.title
+  a(href="/portfolio.html", title="back to portfolio") X
+
+block content
+  article.artwork
+    section.content!= typogr(page.html).typogrify()
+
+block prepend footer
+  div.nav
+    a(href=contents.index.url) « Portfolio
