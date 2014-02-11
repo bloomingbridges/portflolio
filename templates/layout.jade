@@ -27,11 +27,11 @@ html(lang='en')
     div#content
       div.content-wrap
         block content
-    //- footer
-    //-   div.content-wrap
-    //-     block footer
-    //-       //- section.about
-    //-       //-   !=contents['about.md'].html
-    //-       section.copy
-    //-         p #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
-    //-           a(href='https://github.com/jnordberg/wintersmith') Wintersmith
+    footer
+      div.content-wrap
+        block footer
+          section.about
+            //- !=contents['about.md'].html
+          section.copy
+            p #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
+              a(href='https://github.com/jnordberg/wintersmith') Wintersmith
