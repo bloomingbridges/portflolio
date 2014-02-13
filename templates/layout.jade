@@ -28,9 +28,9 @@ html(lang='en')
     footer
       div.content-wrap
         block footer
-          //- section.about
+          section.about
+            !=contents['social.md'].html
             //- !=contents['about.md'].html
-          //- section.copy
-            //- p #{ new Date().getFullYear() } #{ locals.owner } 
-              //- &mdash; powered by&nbsp;
-              //- a(href='https://github.com/jnordberg/wintersmith') Wintersmith
+          section.copy
+            p #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
+              a(href='https://github.com/jnordberg/wintersmith') Wintersmith

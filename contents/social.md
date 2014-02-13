@@ -1,0 +1,5 @@
+[twitter](http://www.twitter.com/bloomingbridges)
+[GitHub](http://www.github.com/bloomingbridges)
+[tumblr](http://bloomingbridges.tumblr.com)
+[linkedIn](http://www.linkedin.com/profile/view?id=67694136)
+[last.fm](http://last.fm/user/mortipeng)

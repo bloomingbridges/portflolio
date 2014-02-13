@@ -31,17 +31,15 @@ window.onload = function() {
             mask: polygon
         });
         polygonHighlight.hover(function() {
-            polygon.animate({ r: 220 }, 700, mina.elastic);
+            polygon.animate({ r: 220 }, 300, mina.easeinout);
+            polygonHighlight.animate({ strokeOpacity: 1 }, 400);
             document.body.style.backgroundColor = colour;
-            window.setTimeout(function() {
-                polygonHighlight.animate({ strokeOpacity: 1 }, 300);
-            }, 300);
         }, function() {
             window.setTimeout(function() {
-                polygon.animate({ r: 180 }, 300, mina.easeinout);
-                polygonHighlight.animate({ strokeOpacity: 0 }, 30);
+                polygon.animate({ r: 180 }, 200, mina.easeinout);
+                polygonHighlight.animate({ strokeOpacity: 0 }, 200);
                 document.body.style.backgroundColor = '#fafafa';
-            }, 20);
+            }, 30);
         });
 
     }
