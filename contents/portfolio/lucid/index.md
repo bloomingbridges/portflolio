@@ -7,4 +7,4 @@ slug: slug
 draft: true
 ---
 
-Description
+A research project exploring the viability of videogames which can be played in your sleep. Lucid is experienced in a full-dome environment using custom gear for head-tracking and player input using phone accelerometers.

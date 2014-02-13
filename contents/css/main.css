@@ -42,6 +42,7 @@ nav a:link, nav a:visited {
     text-decoration: none;
     margin: 0 2em;
     display: inline-block;
+    border-bottom: 5px solid rgb(210,137,227);
 }
 
 nav a.active, nav a:hover {

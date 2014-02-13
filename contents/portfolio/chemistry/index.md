@@ -6,4 +6,4 @@ colour: "#5d76b6"
 slug: chemistry
 ---
 
-Description
+UI Design for the first educational iPad game by the New Lemurs. Made in [Appsterdam](http://appsterdam.rs).

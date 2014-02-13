@@ -14,7 +14,7 @@ html(lang='en')
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic')
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
       link(rel='stylesheet', href='/css/main.css')
-  body(class=bodyclass)
+  body(class=bodyclass, style="background-color:"+bodycolour+";")
     header.header
       div.content-wrap
         block header
@@ -24,14 +24,13 @@ html(lang='en')
               a(href=locals.url)= locals.name
             p.description= locals.description
           include ../contents/nav.jade
-    div#content
-      div.content-wrap
-        block content
+    block content
     footer
       div.content-wrap
         block footer
-          section.about
+          //- section.about
             //- !=contents['about.md'].html
-          section.copy
-            p #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
-              a(href='https://github.com/jnordberg/wintersmith') Wintersmith
+          //- section.copy
+            //- p #{ new Date().getFullYear() } #{ locals.owner } 
+              //- &mdash; powered by&nbsp;
+              //- a(href='https://github.com/jnordberg/wintersmith') Wintersmith

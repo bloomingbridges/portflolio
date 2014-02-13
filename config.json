@@ -3,7 +3,20 @@
     "url": "http://localhost:8080",
     "name": "bloomingbridges",
     "owner": "Florian Brueckner",
-    "description": "Interaction Designer"
+    "description": "Interaction Designer",
+    "navigation": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "Selected Work",
+      "href": "/portfolio.html"
+    },
+    {
+      "title": "Blawg",
+      "href": "/archive.html"
+    }]
   },
   "plugins": [
     "./plugins/paginator.coffee",

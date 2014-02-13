@@ -6,4 +6,4 @@ colour: "rgb(0,38,45)"
 slug: pulse_mode
 ---
 
-Description
+Network architecture for __Stavros Didakis__'s participatory audiovisual installation at _Code Control Festival 2013_ in Leicester.
