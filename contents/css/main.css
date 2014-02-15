@@ -9,6 +9,7 @@ body {
   line-height: 1.52;
   background-color: #fafafa;
   text-rendering: optimizeLegibility;
+  -webkit-transition: background-color 0.3s linear;
 }
 
 #content {
@@ -273,15 +274,17 @@ svg.mask {
 }
 
 .artwork_container {
-    width: 600px;
+    width: 700px;
     overflow: auto;
     margin: 0 auto;
-    padding-bottom: 5em;
+    padding-bottom: 3em;
+    position: relative;
+    -webkit-transition: width .4s ease-out;
 }
 
 .artwork {
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     display: block;
     overflow: hidden;
     position: relative;
@@ -419,12 +422,15 @@ code.lang-markdown .bullet {
     width: 140px;
   }
   .artwork_container {
-    width: 1200px;
+    width: 1050px;
   }
 }
 
 @media (max-width: 900px) {
   body { font-size: 18px; }
+  .artwork_container {
+    width: 700px;
+  }
 }
 
 @media (max-width: 690px) {
@@ -458,6 +464,9 @@ code.lang-markdown .bullet {
     border: 0 !important;
     margin: 0 !important;
   }
+  .artwork {
+    margin: 0 25px;
+  }
   footer .nav {
     margin: 1em 0;
   }
@@ -472,6 +481,18 @@ code.lang-markdown .bullet {
   }
   footer .about p {
     margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 568px) {
+  nav a:link {
+    display: inline-block;
+    margin: 0 auto 0.5em auto;
+    width: 80%;
+    border-bottom: none;
+  }
+  .artwork_container {
+    width: 300px;
   }
 }
 

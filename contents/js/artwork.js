@@ -14,9 +14,9 @@ window.onload = function() {
     function maskArtwork(element, source, colour) {
 
         var s = Snap(element);
-        var image = s.image(source, 0, 0, 500, 500);
-        var polygon = s.circle(250, 250, 180);
-        var polygonHighlight = s.circle(250,250,220);
+        var image = s.image(source, 0, 0, 250, 250);
+        var polygon = s.circle(125, 125, 90);
+        var polygonHighlight = s.circle(125,125,110);
         polygon.attr({ 
             fill: "#fff"
         });
@@ -31,12 +31,12 @@ window.onload = function() {
             mask: polygon
         });
         polygonHighlight.hover(function() {
-            polygon.animate({ r: 220 }, 300, mina.easeinout);
+            polygon.animate({ r: 110 }, 300, mina.easeinout);
             polygonHighlight.animate({ strokeOpacity: 1 }, 400);
             document.body.style.backgroundColor = colour;
         }, function() {
             window.setTimeout(function() {
-                polygon.animate({ r: 180 }, 200, mina.easeinout);
+                polygon.animate({ r: 90 }, 200, mina.easeinout);
                 polygonHighlight.animate({ strokeOpacity: 0 }, 200);
                 document.body.style.backgroundColor = '#fafafa';
             }, 30);
