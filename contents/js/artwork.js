@@ -38,10 +38,41 @@ window.onload = function() {
             window.setTimeout(function() {
                 polygon.animate({ r: 90 }, 200, mina.easeinout);
                 polygonHighlight.animate({ strokeOpacity: 0 }, 200);
-                document.body.style.backgroundColor = '#fafafa';
             }, 30);
         });
 
     }
+
+    document.querySelector(".header").addEventListener('mouseover', function() {
+        document.body.style.backgroundColor = '#fafafa';
+    });
+
+    var iso = new Isotope(".artwork_container", {
+        itemSelector: ".artwork",
+        // getSortData: {
+        //     category: '[data-category]'
+        // },
+        containerStyle: null,
+        transitionDuration: 0,
+        hiddenStyle: {
+            opacity: 0.5
+        },
+        visibleStyle: {
+            opacity: 1
+        },
+        layoutMode: "fitRows"
+    });
+
+    [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
+        button.addEventListener('click', function() {
+            if (button.dataset.filterValue) {
+                iso.arrange({filter: button.dataset.filterValue});
+                iso.arrange();
+            }
+            else {
+                iso.arrange({ filter: null });
+            }
+        })
+    })
 
 }

@@ -28,12 +28,24 @@ html(lang='en')
       -   if (typeof artworks[item] === "object" && artworks[item].hasOwnProperty('metadata') && !artworks[item].metadata.draft) {
       -     var item = artworks[item].metadata
       -     var imgURL = "/portfolio/"+item.slug+"/teaser.png"
-      div(id=item.slug, class="artwork", data-colour=item.colour)
+      -     var cats = item.category.replace(/,/g, "");
+      div(id=item.slug, class="artwork " + cats, data-colour=item.colour)
         img(src=imgURL)
         a(href="/portfolio/"+item.slug+"/index.html")
           svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
       -   }
       - }
 
+    section.filterBar
+      button All
+      button(data-filter-value=".ui") User Interface
+      button(data-filter-value=".game") Game
+      button(data-filter-value=".branding") Branding
+      button(data-filter-value=".illustration") Illustration
+      button(data-filter-value=".ios") iOS
+      button(data-filter-value=".web") Web
+      button(data-filter-value=".android") Android
+
     script(src="js/vendor/snap.svg-min.js")
+    script(src="js/vendor/isotope.pkgd.js")
     script(src="js/artwork.js")
