@@ -11,11 +11,11 @@
     },
     {
       "title": "Selected Work",
-      "href": "/portfolio.html"
+      "href": "portfolio.html"
     },
     {
       "title": "About",
-      "href": "/about.html"
+      "href": "about.html"
     }]
   },
   "plugins": [

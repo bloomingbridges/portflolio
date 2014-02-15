@@ -33,9 +33,9 @@ window.onload = function() {
             mask: polygon
         });
         polygonHighlight.hover(function() {
+            document.body.style.backgroundColor = colour;
             polygon.animate({ r: 110 }, 300, mina.easeinout);
             polygonHighlight.animate({ strokeOpacity: 1 }, 400);
-            document.body.style.backgroundColor = colour;
         }, function() {
             polygonHighlight.animate({ strokeOpacity: 0 }, 200);
             polygon.animate({ r: 90 }, 200, mina.easeinout);
