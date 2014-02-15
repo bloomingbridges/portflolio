@@ -1,6 +1,8 @@
 window.onload = function() {
 
-    var artworks = document.querySelectorAll('.artwork');
+    var artworks = document.querySelectorAll('.artwork'),
+        filter = [];
+
     for (var a in artworks) {
         if (typeof artworks[a] == "object") {
             var element = artworks[a];
@@ -35,11 +37,13 @@ window.onload = function() {
             polygonHighlight.animate({ strokeOpacity: 1 }, 400);
             document.body.style.backgroundColor = colour;
         }, function() {
-            window.setTimeout(function() {
-                polygon.animate({ r: 90 }, 200, mina.easeinout);
-                polygonHighlight.animate({ strokeOpacity: 0 }, 200);
-            }, 30);
+            polygonHighlight.animate({ strokeOpacity: 0 }, 200);
+            polygon.animate({ r: 90 }, 200, mina.easeinout);
         });
+
+    }
+
+    function filterArtwork() {
 
     }
 
@@ -47,30 +51,34 @@ window.onload = function() {
         document.body.style.backgroundColor = '#fafafa';
     });
 
-    var iso = new Isotope(".artwork_container", {
-        itemSelector: ".artwork",
-        // getSortData: {
-        //     category: '[data-category]'
-        // },
-        containerStyle: null,
-        transitionDuration: 0,
-        hiddenStyle: {
-            opacity: 0.5
-        },
-        visibleStyle: {
-            opacity: 1
-        },
-        layoutMode: "fitRows"
-    });
+    // var iso = new Isotope(".artwork_container", {
+    //     itemSelector: ".artwork",
+    //     // getSortData: {
+    //     //     category: '[data-category]'
+    //     // },
+    //     containerStyle: null,
+    //     transitionDuration: 0,
+    //     hiddenStyle: {
+    //         opacity: 0.5
+    //     },
+    //     visibleStyle: {
+    //         opacity: 1
+    //     },
+    //     layoutMode: "fitRows"
+    // });
 
     [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
-                iso.arrange({filter: button.dataset.filterValue});
-                iso.arrange();
+                button.classList.toggle('active');
+                filter.push(button.dataset.filterValue);
+                filterArtwork();
             }
             else {
-                iso.arrange({ filter: null });
+                filter = [];
+                [].forEach.call(document.querySelectorAll('.artwork'), function(artwork) {
+                    artwork.classList.remove('filtered');
+                });
             }
         })
     })
