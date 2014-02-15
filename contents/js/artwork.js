@@ -43,42 +43,53 @@ window.onload = function() {
 
     }
 
-    function filterArtwork() {
+    function filterArtworks() {
+        [].forEach.call(artworks, function(artwork) {
+            var passedTest;
+            for (var f=0; f<filter.length; f++) {
+                if (artwork.dataset.category.indexOf(filter[f]) > -1)
+                    passedTest = true;
+                if (!passedTest)
+                    artwork.classList.add('filtered');
+                else
+                    artwork.classList.remove('filtered');
+            }
+        });
+    }
 
+    function clearFilter() {
+        filter = [];
+        [].forEach.call(document.querySelectorAll('.artwork'), function(artwork) {
+            artwork.classList.remove('filtered');
+        });
+        [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
+            button.classList.remove('active');
+        });
+        document.querySelector('#clearFilterButton').classList.add('active');
     }
 
     document.querySelector(".header").addEventListener('mouseover', function() {
         document.body.style.backgroundColor = '#fafafa';
     });
 
-    // var iso = new Isotope(".artwork_container", {
-    //     itemSelector: ".artwork",
-    //     // getSortData: {
-    //     //     category: '[data-category]'
-    //     // },
-    //     containerStyle: null,
-    //     transitionDuration: 0,
-    //     hiddenStyle: {
-    //         opacity: 0.5
-    //     },
-    //     visibleStyle: {
-    //         opacity: 1
-    //     },
-    //     layoutMode: "fitRows"
-    // });
-
     [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
                 button.classList.toggle('active');
-                filter.push(button.dataset.filterValue);
-                filterArtwork();
+                document.querySelector('#clearFilterButton').classList.remove('active');
+                if (!button.classList.contains("active")) {
+                    filter.splice(filter.indexOf(button.dataset.filterValue), 1);
+                    if (filter.length === 0)
+                        clearFilter();
+                } else {
+                    filter.push(button.dataset.filterValue);
+                }
+                console.log(filter);
+                filterArtworks();
             }
             else {
-                filter = [];
-                [].forEach.call(document.querySelectorAll('.artwork'), function(artwork) {
-                    artwork.classList.remove('filtered');
-                });
+                document.querySelector('#clearFilterButton').classList.add('active');
+                clearFilter();
             }
         })
     })
