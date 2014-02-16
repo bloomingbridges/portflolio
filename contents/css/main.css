@@ -314,35 +314,30 @@ svg.mask {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(250,250,250,0.6);
+  background-color: rgba(250,250,250,0.8);
+  display: none;
+  overflow: scroll;
 }
 
 .preview_container {  
-  position: absolute;
   width: 360px;
-  height: auto;
-  top: 3em;
-  left: 50%;
-  margin-left: -180px;
+  margin: 1.5em auto;
+  position: relative;
   background-color: #fafafa;
   box-shadow: 0 25px 50px #666;
+  overflow: auto;
 }
 
 .preview_container .close, .preview_container .open {
-  position: absolute;
-  top: 360px;
-  width: 90px;
+  width: 50%;
+  text-align: center;
+  line-height: 2.25em;
+  border-top: 2px solid #ededed;
+  margin: 0;
+  float: left;
 }
 
-.close {
-  right: 360px;
-}
-
-.open {
-  left: 360px;
-}
-
-.preview_container h2 {
+.preview_container h2.title {
   text-align: center;
   line-height: 1.5em;
   margin: 0;
@@ -351,7 +346,15 @@ svg.mask {
 
 .preview_container p {
   font-size: 0.85em;
-  margin: 1em;
+  margin: 1em 1em 2em 1em;
+}
+
+.preview_container a:link {
+  text-decoration: none;
+}
+
+.preview_container a:hover {
+  color: #8847de;
 }
 
 .artwork_preview img {
@@ -369,6 +372,11 @@ svg.mask {
   width: 100%;
   line-height: 2em;
   background-color: rgba(250,250,250,0.6);
+  -webkit-transition: bottom .4s ease-out;
+}
+
+.filterBar.hidden {
+  bottom: -3em;
 }
 
 .filterBar button {

@@ -29,20 +29,20 @@ html(lang='en')
       -     var item = artworks[item].metadata
       -     var imgURL = "/portfolio/"+item.slug+"/teaser.png"
       -     var cats = item.category.split(", ");//item.category.replace(/,/g, "");
-      div(id=item.slug, class="artwork", data-colour=item.colour, data-category=cats)
+      div(id=item.slug, class="artwork", data-title=item.title, data-colour=item.colour, data-category=cats)
         img(src=imgURL)
-        a(href="/portfolio/"+item.slug+"/index.html")
+        a(href="/portfolio/"+item.slug+"/index.html", title=item.title)
           svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
       -   }
       - }
 
     section.artwork_preview
       section.preview_container
-        h2.close close
-        h2.open open
-        img(id="preview", src="/portfolio/mayu/teaser.png")
-        h2 Project title
+        img(id="preview", src="")
+        h2.title Project title
         p A data-absorbing bottle. Uncork it, watch it, shake it, pour it and revel in its contents.
+        a.close(href="#", title="close item") close
+        a.open(href="#", title="read more") open
 
     section.filterBar
       button(id="clearFilterButton", class="active") All

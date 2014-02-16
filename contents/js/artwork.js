@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     var artworks = document.querySelectorAll('.artwork'),
+        preview = document.querySelector('.artwork_preview'),
+        previewImg = document.querySelector('.artwork_preview #preview'),
+        filterBar = document.querySelector('.filterBar'),
         filter = [];
 
     for (var a in artworks) {
@@ -92,6 +95,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearFilter();
             }
         })
-    })
+    });
+
+    [].forEach.call(document.querySelectorAll('.artwork_container a'), function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log(previewImg);
+            previewImg.src = link.previousSibling.src;
+            preview.querySelector('h2.title').innerText = link.title;
+            setTimeout(function() {                
+                filterBar.classList.add('hidden');
+                preview.style.display = "block";
+            }, 200);
+        });
+    });
 
 });
