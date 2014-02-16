@@ -308,6 +308,59 @@ svg.mask {
     top: -250px;
 }
 
+.artwork_preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250,250,250,0.6);
+}
+
+.preview_container {  
+  position: absolute;
+  width: 360px;
+  height: auto;
+  top: 3em;
+  left: 50%;
+  margin-left: -180px;
+  background-color: #fafafa;
+  box-shadow: 0 25px 50px #666;
+}
+
+.preview_container .close, .preview_container .open {
+  position: absolute;
+  top: 360px;
+  width: 90px;
+}
+
+.close {
+  right: 360px;
+}
+
+.open {
+  left: 360px;
+}
+
+.preview_container h2 {
+  text-align: center;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0.5em 2em;
+}
+
+.preview_container p {
+  font-size: 0.85em;
+  margin: 1em;
+}
+
+.artwork_preview img {
+  width: 360px;
+  height: 360px;
+  background-color: aquamarine;
+  display: block;
+}
+
 .filterBar {
   text-align: center;
   position: fixed;

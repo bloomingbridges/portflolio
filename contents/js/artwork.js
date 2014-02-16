@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
 
     var artworks = document.querySelectorAll('.artwork'),
         filter = [];
@@ -94,4 +94,4 @@ window.onload = function() {
         })
     })
 
-}
+});

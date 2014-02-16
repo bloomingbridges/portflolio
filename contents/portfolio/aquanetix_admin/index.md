@@ -6,4 +6,5 @@ colour: "#1fadff"
 slug: aquanetix_admin
 ---
 
-This is a description
+[Aquanetix](http://www.aquanetix.co.uk)
+[Notifier app](/portfolio/aquanetix_notifier/index.html)

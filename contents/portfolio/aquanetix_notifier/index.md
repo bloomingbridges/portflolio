@@ -6,4 +6,4 @@ colour: "#3b3b3b"
 slug: aquanetix_notifier
 ---
 
-This is another description
+[Web interface](/portfolio/aquanetix_admin/index.html)
