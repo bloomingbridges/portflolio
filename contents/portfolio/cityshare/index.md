@@ -2,8 +2,12 @@
 title: CityShare 
 date: 10-2013
 category: ui, ios
-colour: "#1eebb6"
+colour: "#14d8f5"
 slug: cityshare
 ---
 
-Description
+![CityShare MVP Designs Collage](designs.png)
+
+![CityShare Logo](logo.png)
+
+[CityShare Website](http://www.cityshare.com)

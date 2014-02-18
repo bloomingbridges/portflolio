@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelector('.artwork_preview .close').addEventListener('click', function(event) {
+        event.preventDefault();
         filterBar.classList.remove('hidden');
         preview.style.display = "none";
     });
