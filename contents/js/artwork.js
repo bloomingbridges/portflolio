@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var artworks = document.querySelectorAll('.artwork'),
         preview = document.querySelector('.artwork_preview'),
         previewImg = document.querySelector('.artwork_preview #preview'),
+        previewShort = document.querySelector('.artwork_preview .description'),
+        previewLink = document.querySelector('.artwork_preview .open'),
         filterBar = document.querySelector('.filterBar'),
         filter = [];
 
@@ -100,14 +102,20 @@ document.addEventListener('DOMContentLoaded', function() {
     [].forEach.call(document.querySelectorAll('.artwork_container a'), function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            console.log(previewImg);
             previewImg.src = link.previousSibling.src;
             preview.querySelector('h2.title').innerText = link.title;
+            previewShort.innerText = link.title;
+            previewLink.href = link.href;
             setTimeout(function() {                
                 filterBar.classList.add('hidden');
                 preview.style.display = "block";
             }, 200);
         });
+    });
+
+    document.querySelector('.artwork_preview .close').addEventListener('click', function(event) {
+        filterBar.classList.remove('hidden');
+        preview.style.display = "none";
     });
 
 });

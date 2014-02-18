@@ -1,5 +1,5 @@
 ---
-title: StrikePadd 
+title: StrikePad
 date: 2012
 category: ios, ui
 colour: "#373737"
