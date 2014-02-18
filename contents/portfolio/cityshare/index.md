@@ -6,7 +6,7 @@ colour: "#14d8f5"
 slug: cityshare
 ---
 
-![CityShare MVP Designs Collage](designs.png)
+![CityShare MVP Designs Collage](designs.jpg)
 
 ![CityShare Logo](logo.png)
 

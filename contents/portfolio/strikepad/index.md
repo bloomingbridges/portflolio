@@ -6,4 +6,4 @@ colour: "#373737"
 slug: strikepad
 ---
 
-Description
+![StrikePad Screenshots](screenshots.png)

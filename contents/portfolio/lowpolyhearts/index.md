@@ -2,7 +2,7 @@
 title: "Low-Poly Hearts Illustration" 
 date: 2012
 category: illustration, 3d
-colour: "#ffe999"
+colour: "rgb(90,0,0)"
 slug: lowpolyhearts 
 ---
 

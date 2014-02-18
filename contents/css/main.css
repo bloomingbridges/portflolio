@@ -150,6 +150,7 @@ hr {
 }
 
 body.article-detail > header h1 {
+  color: white;
   font-size: 2.5em;
   font-style: italic;
   font-weight: 400;
@@ -158,6 +159,15 @@ body.article-detail > header h1 {
 
 body.article-detail > header {
   margin-bottom: 3em;
+}
+
+body.article-detail footer a, body.article-detail .copy {
+  color: white;
+  opacity: 0.8;
+}
+
+body.article-detail footer a:hover {
+  opacity: 1;
 }
 
 /* page footer */
@@ -253,7 +263,8 @@ footer .copy, footer .copy a {
 
 .article .content img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .more, .date {
