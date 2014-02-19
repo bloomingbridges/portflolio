@@ -4,6 +4,7 @@ date: 2012
 category: ui, web
 colour: red
 slug: jwotd
+description: "A simple browser homepage for learning Japanese and exploring CSS3's capabilities, one property at a time."
 ---
 
-Description
+Let me assure you it was beautiful while it lasted.

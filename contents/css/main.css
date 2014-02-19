@@ -170,6 +170,14 @@ body.article-detail footer a:hover {
   opacity: 1;
 }
 
+.caption {
+  color: #666;
+  font-size: 0.7em;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 5em;
+}
+
 /* page footer */
 
 footer {

@@ -31,7 +31,7 @@ html(lang='en')
       -     var cats = item.category.split(", ");//item.category.replace(/,/g, "");
       div(id=item.slug, class="artwork", data-title=item.title, data-colour=item.colour, data-category=cats)
         img(src=imgURL)
-        a(href="/portfolio/"+item.slug+"/index.html", title=item.title)
+        a(href="/portfolio/"+item.slug+"/index.html", title=item.title, data-description=item.description)
           svg(version="1.1", class="mask", xmlns="http://www.w3.org/2000/svg")
       -   }
       - }
