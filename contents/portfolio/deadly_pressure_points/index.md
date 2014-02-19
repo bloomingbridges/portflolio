@@ -7,3 +7,7 @@ slug: deadly_pressure_points
 ---
 
 Adventure Time episode Chamber of frozen secrets
+
+![Reference screengrab](reference.png)
+
+![Last progress](progress.png)

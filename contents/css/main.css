@@ -267,6 +267,11 @@ footer .copy, footer .copy a {
   margin: 0 auto;
 }
 
+.article .content iframe {
+  margin: 0 auto 2em auto;
+  display: block;
+}
+
 .more, .date {
   font-family: 'Lato', serif;
   font-variant: small-caps;

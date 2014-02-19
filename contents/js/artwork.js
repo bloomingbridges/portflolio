@@ -77,6 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.backgroundColor = '#fafafa';
     });
 
+    function dismissPreview(event) {
+        if (event.target.classList.contains('artwork_preview') || 
+            event.target.classList.contains('close') ) {
+            event.preventDefault();
+            filterBar.classList.remove('hidden');
+            preview.style.display = "none";
+        }
+    }
+
     [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
@@ -104,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             previewImg.src = link.previousSibling.src;
             preview.querySelector('h2.title').innerText = link.title;
-            previewShort.innerText = link.title;
+            previewShort.innerText = "";
             previewLink.href = link.href;
             setTimeout(function() {                
                 filterBar.classList.add('hidden');
@@ -113,10 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.querySelector('.artwork_preview .close').addEventListener('click', function(event) {
-        event.preventDefault();
-        filterBar.classList.remove('hidden');
-        preview.style.display = "none";
-    });
+    document.querySelector('.artwork_preview').addEventListener('click', dismissPreview);
+    document.querySelector('.preview_container .close').addEventListener('click', dismissPreview);
 
 });

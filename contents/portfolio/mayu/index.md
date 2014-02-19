@@ -6,4 +6,4 @@ colour: "#f7017e"
 slug: mayu
 ---
 
-Description
+![Boot Sequence Screengrabs](boot_sequence.png)
