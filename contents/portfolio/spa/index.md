@@ -2,9 +2,9 @@
 title: Science Park Amsterdam
 date: 2012
 category: ui, ios
-colour: "#3b3b3b"
+colour: "rgb(0,123,55)"
 slug: spa
-draft: true
+description: "Designing the promotional iOS app / media library for SPA."
 ---
 
 Description

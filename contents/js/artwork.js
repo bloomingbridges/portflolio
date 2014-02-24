@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             previewImg.src = link.previousSibling.src;
             preview.querySelector('h2.title').innerText = link.title;
-            previewShort.innerText = link.dataset.description || "";
+            previewShort.innerHTML = link.dataset.description || "";
             previewLink.href = link.href;
             setTimeout(function() {                
                 filterBar.classList.add('hidden');

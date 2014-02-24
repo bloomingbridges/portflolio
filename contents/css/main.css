@@ -154,7 +154,8 @@ body.article-detail > header h1 {
   font-size: 2.5em;
   font-style: italic;
   font-weight: 400;
-  margin-bottom: -0.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0;
 }
 
 body.article-detail > header {
@@ -575,6 +576,12 @@ code.lang-markdown .bullet {
   }
   .header h1 {
     font-size: 1.4em;
+    margin-bottom: 0.6em;
+  }
+  body.article-detail > header {
+    margin-bottom: 0;
+  }
+  body.article-detail > header h1 {
     margin-bottom: 0.6em;
   }
   .header .description {
