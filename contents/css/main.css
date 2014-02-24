@@ -356,6 +356,7 @@ svg.mask {
 .preview_container .close, .preview_container .open {
   width: 50%;
   text-align: center;
+  text-decoration: none;
   line-height: 2.25em;
   border-top: 2px solid #ededed;
   margin: 0;
@@ -372,10 +373,6 @@ svg.mask {
 .preview_container p {
   font-size: 0.85em;
   margin: 1em 1em 2em 1em;
-}
-
-.preview_container a:link {
-  text-decoration: none;
 }
 
 .preview_container a:hover {
