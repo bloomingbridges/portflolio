@@ -400,7 +400,7 @@ svg.mask {
 }
 
 .filterBar.hidden {
-  bottom: -3em;
+  bottom: -200px;
 }
 
 .filterBar button {
@@ -625,6 +625,19 @@ code.lang-markdown .bullet {
   }
   .artwork_container {
     width: 300px;
+    margin-bottom: 3em;
+  }
+  .artork_preview {
+    background: transparent;
+  }
+  .preview_container {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+  .preview_container img {
+    width: 100%;
+    height: auto;
   }
 }
 

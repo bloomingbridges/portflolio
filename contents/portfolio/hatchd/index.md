@@ -1,10 +1,11 @@
 ---
-title: title 
+title: hatch'd 
 date: date
-category: category
-colour: aquamarine
-slug: slug
-draft: true
+category: 3d
+colour: black
+slug: hatchd
 ---
 
-Description
+![Stillframe](eggview.jpeg)
+![Eggshells render](eggshells.jpeg)
+![Heurel Render](heurel32d.jpeg)
