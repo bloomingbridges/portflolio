@@ -118,6 +118,7 @@ hr {
 
 .header {
   margin: 3em 0 2em 0;
+  text-shadow: 0 2px rgba(221,226,214,0.6);
 }
 
 .header h1 {

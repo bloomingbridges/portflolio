@@ -40,10 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
         polygonHighlight.hover(function() {
             document.body.style.backgroundColor = colour;
             polygon.animate({ r: 110 }, 300, mina.easeinout);
-            polygonHighlight.animate({ strokeOpacity: 1 }, 400);
+            // polygonHighlight.animate({ strokeOpacity: 1 }, 400);
+            polygonHighlight.attr({strokeOpacity: 1});
         }, function() {
-            polygonHighlight.animate({ strokeOpacity: 0 }, 200);
-            polygon.animate({ r: 90 }, 200, mina.easeinout);
+            polygon.animate({ r: 90 }, 20, mina.easeinout);
+            // polygonHighlight.animate({ strokeOpacity: 0 }, 200);
+            polygonHighlight.attr({strokeOpacity: 0});
         });
 
     }
