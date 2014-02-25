@@ -118,7 +118,15 @@ hr {
 
 .header {
   margin: 3em 0 2em 0;
-  text-shadow: 0 2px rgba(221,226,214,0.6);
+}
+
+.header p, .header a, .header h1 {
+  color: inherit;
+  -webkit-transition: color .3s linear;
+}
+
+.header.coloured, .coloured a, .coloured h1 {
+  color: rgb(221,226,214) !important;
 }
 
 .header h1 {
@@ -164,12 +172,13 @@ body.article-detail > header {
 }
 
 body.article-detail footer a, body.article-detail .copy {
-  color: white;
-  opacity: 0.8;
+  color: rgb(221,226,214);
+  /*opacity: 0.8;*/
 }
 
 body.article-detail footer a:hover {
-  opacity: 1;
+  color: white;
+  /*opacity: 1;*/
 }
 
 .caption {

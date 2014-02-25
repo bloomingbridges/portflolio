@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         polygonHighlight.hover(function() {
             document.body.style.backgroundColor = colour;
+            document.querySelector('.header').classList.add('coloured');
             polygon.animate({ r: 110 }, 300, mina.easeinout);
             // polygonHighlight.animate({ strokeOpacity: 1 }, 400);
             polygonHighlight.attr({strokeOpacity: 1});
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector(".header").addEventListener('mouseover', function() {
         document.body.style.backgroundColor = '#fafafa';
+        document.querySelector('.header').classList.remove('coloured');
     });
 
     function dismissPreview(event) {
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             filterBar.classList.remove('hidden');
             preview.style.display = "none";
+            document.body.style.backgroundColor = "#fafafa";
         }
     }
 
