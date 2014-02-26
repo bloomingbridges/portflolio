@@ -1,7 +1,7 @@
 ---
 title: Pulse Mode by Stavros Didakis
 date: 2013
-category: installation, ui
+category: installation, ui, featured
 colour: "rgb(0,38,45)"
 slug: pulse_mode
 description: "Network architecture and UI design for <em>Stavros Didakis</em>'s participatory audiovisual installation at <strong>Code Control Festival 2013</strong> in Leicester."

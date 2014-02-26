@@ -1,9 +1,9 @@
 ---
-title: title 
-date: date
-category: category
-colour: aquamarine
-slug: slug
+title: Zen Trials 
+date: 2012
+category: 3d, game
+colour: white
+slug: zentrials
 description: "An experimental puzzle game, utilising the <em>Neurosky MindWave</em> headset and other biofeedback for input."
 draft: true
 ---
