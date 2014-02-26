@@ -210,7 +210,7 @@ footer .nav a {
 footer .about {
   /*border-top: 1px dashed #d2d2d2;*/
   text-align: center;
-  padding: 0 3em;
+  padding: 0 3em 0 3em !important;
   font-size: 0.7em;
 /*  -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -220,6 +220,15 @@ footer .about {
   -moz-column-gap: 2em;
   -ms-column-gap: 2em;
   column-gap: 2em;*/
+}
+
+footer .about a {
+  text-decoration: none;
+  line-height: 1.25em;
+  padding: 0.2em 0.4em;
+  margin: 0 0.4em 0.4em 0.4em;
+  display: inline-block;
+  border-bottom: 1px solid #8e8e8e;
 }
 
 footer .copy {
@@ -631,11 +640,12 @@ code.lang-markdown .bullet {
 }
 
 @media (max-width: 568px) {
-  nav a:link {
+  nav a:link, footer .about a {
     display: inline-block;
-    margin: 0 auto 0.5em auto;
+    margin: 0 0.2em 1em 0.2em;
+  }
+  footer .about a {
     width: 80%;
-    border-bottom: none;
   }
   .artwork_container {
     width: 300px;
