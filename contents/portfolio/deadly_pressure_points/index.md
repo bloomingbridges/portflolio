@@ -9,7 +9,7 @@ description: "Standing on the shoulders of snow golems. Tracing an obscure asset
 
 As a fanatic penguin fan and avid _Adventure Time_ watcher, I couldn't help but notice this little gem in one of their episodes (the one to the left, of course): 
 
-![Reference screengrab](reference.png)
+![Reference screengrab](reference.jpg)
 <p class="caption">Still from the <strong>Adventure Time</strong> episode "<strong>Chamber of Frozen Secrets</strong>" &copy; Cartoon Network</p>
 
 If only visible for a few frames in total, I couldn't help but whip out my _wacom_ tablet and try and reproduce the _Deadly Pressure Points_ poster in a higher resolution. The bad news is, that this is still a work-in-progress as I'm having trouble identifying most of the _hiragana_ labels. A little help from a hobby zoologist would be much appreciated :>
