@@ -13,3 +13,5 @@ description: "Network architecture and UI design for <em>Stavros Didakis</em>'s 
 
 ![Web Voting Interface](voting_interface.png)
 ![Tablet Monitor](monitor.png)
+
+<p class="caption">Screenshots from back when the project was running under the codename DAVE</p>

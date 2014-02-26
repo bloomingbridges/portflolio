@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         previewShort = document.querySelector('.artwork_preview .description'),
         previewLink = document.querySelector('.artwork_preview .open'),
         filterBar = document.querySelector('.filterBar'),
-        filter = [];
+        filter = ["featured"];
 
     for (var a in artworks) {
         if (typeof artworks[a] == "object") {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var colour = element.dataset.colour;
             maskArtwork(paper, source, colour);         
         }
+        filterArtworks();
     }
 
     function maskArtwork(element, source, colour) {
@@ -88,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
             filterBar.classList.remove('hidden');
             preview.style.display = "none";
             document.body.style.backgroundColor = "#fafafa";
+            document.querySelector('.header').classList.remove('coloured');
+            document.body.style.overflow = "auto";
         }
     }
 
@@ -95,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
                 var filterValues = button.dataset.filterValue.split(", ");
-                console.log(filterValues);
                 button.classList.toggle('active');
                 document.querySelector('#clearFilterButton').classList.remove('active');
                 if (!button.classList.contains("active")) {
@@ -127,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             previewShort.innerHTML = link.dataset.description || "";
             previewLink.href = link.href;
             setTimeout(function() {                
+                document.body.style.overflow = "hidden";
                 filterBar.classList.add('hidden');
                 preview.style.display = "block";
             }, 200);
