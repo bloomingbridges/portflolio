@@ -94,16 +94,22 @@ document.addEventListener('DOMContentLoaded', function() {
     [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
+                var filterValues = button.dataset.filterValue.split(", ");
+                console.log(filterValues);
                 button.classList.toggle('active');
                 document.querySelector('#clearFilterButton').classList.remove('active');
                 if (!button.classList.contains("active")) {
-                    filter.splice(filter.indexOf(button.dataset.filterValue), 1);
+                    for (var i=filterValues.length-1; i>=0; i--) {
+                        filter.splice(filter.indexOf(filterValues[i]), 1);
+                    }
                     if (filter.length === 0)
                         clearFilter();
                 } else {
-                    filter.push(button.dataset.filterValue);
+                    for (var i=filterValues.length-1; i>=0; i--) {
+                        filter.push(filterValues[i]);
+                    }
                 }
-                console.log(filter);
+                console.log("FILTER:", filter);
                 filterArtworks();
             }
             else {
