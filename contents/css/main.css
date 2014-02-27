@@ -171,7 +171,7 @@ body.article-detail > header {
   margin-bottom: 3em;
 }
 
-body.article-detail footer a, body.article-detail .copy {
+body.article-detail footer a, body.article-detail footer h2, body.article-detail .copy {
   color: rgb(221,226,214);
   /*opacity: 0.8;*/
 }

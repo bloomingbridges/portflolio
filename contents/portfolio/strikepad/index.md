@@ -1,7 +1,7 @@
 ---
 title: StrikePad
 date: 2012
-category: ios, ui
+category: ios, ui, featured
 colour: "#373737"
 slug: strikepad
 description: "The original list-making app for iOS, pre-dating all the copycats!"

@@ -1,7 +1,7 @@
 ---
 title: "Lemurs Chemistry: Water"
 date: 2012
-category: ui, game, ios
+category: ui, game, ios, featured
 colour: "#5d76b6"
 slug: chemistry
 description: "UI design for the first educational iOS game by Mike Lee's New Lemurs."

@@ -21,6 +21,8 @@ __IN//CUBUS__ consists of three parts, the object, the projection and the indivi
 
 Next to the ominously glowing cube, a projector shows faces on a rotating cube being occupied, whilst encouraging visitors to join the _scavenger hunt_ by opening up a _Facebook_ application on their devices. 
 
+![Debugging session](debugging.png)
+
 What you get on your screen is a flickering square and two-dimensional coordinates. Now what? The observant new media art gallery visitor will deduct that the coordinates can be traced back on the projection and that, if more people would join in, the cube's faces would eventually be made up of pixels.
 
 ![End result](production.png)
