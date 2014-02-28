@@ -6,15 +6,11 @@
     "description": "Interaction Designer",
     "navigation": [
     {
-      "title": "Home",
-      "href": "/"
-    },
-    {
       "title": "Selected Work",
       "href": "portfolio.html"
     },
     {
-      "title": "About",
+      "title": "About myself",
       "href": "about.html"
     }]
   },

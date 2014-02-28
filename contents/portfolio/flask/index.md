@@ -14,9 +14,7 @@ Quoting directly from the [project blog](http://sorakasumi.github.io/flask/):
 > __Flask__ is a bottle that collects data. It condenses streams of 1s and 0s and represents the quantity stored using light. It plays on the inherent affordances of its form to map real world actions to digital functions – its cork can be removed and replaced to start and stop the collection of data and its contents can be poured, at varying rates, onto a surface.
 
 And here is the [video demonstration](http://vimeo.com/66462979):
-
-<iframe src="//player.vimeo.com/video/66462979" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/66462979">Flask</a> from <a href="http://vimeo.com/benashman">Ben Ashman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
+<iframe src="//player.vimeo.com/video/66462979" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ## The Journey
 

@@ -31,9 +31,14 @@ What you get on your screen is a flickering square and two-dimensional coordinat
 
 What it is, is the sculpture is transmitting a 50x50px small video stream, meaning one would need about _2500_ devices and place them in a grid next to each other (coordinates!) in order to see the full video message. What's more, is that whenever someone new joins, he unknowingly contributes to the content of the video as it is being dynamically generated in the background.
 
-Well on its brightest day I had about 13 user simultaneously, which only shows how much of a megalomaniac I can be at times. It was however fun to explore new technologies: 
+Well on its brightest day I had about 13 user simultaneously, which only shows how much of a megalomaniac I can be at times. It was however fun to explore new technologies: I..
 
-I made something with _Arduino_ and a lamp and didn't electrocute myself, streaming binary data over _WebSockets_ and writing a networked visualisation in C++ (_openFrameworks_) and _MongoDB_ (for storing all the pixel values). The code is up online for your perusal on [GitHub](https://github.com/bloomingbridges/IN_CUBUS). If you're eager, you might even figure out what __IN//CUBUS__'s secret message was all about ;)
+- ..made something with _Arduino_ and an _IKEA_ lamp and didn't electrocute myself!
+- ..was carelessly streaming binary data over _WebSockets_ 
+- ..wrote a networked visualisation in C++ (_openFrameworks_) and
+- ..pulled my hair out over _MongoDB_ (for storing all the pixel values). 
+
+The code is up online for your perusal on [GitHub](https://github.com/bloomingbridges/IN_CUBUS). If you're eager, you might even figure out what __IN//CUBUS__'s secret message was all about ;)
 
 ![IN//CUBUS Love](cubehug.jpg)
 

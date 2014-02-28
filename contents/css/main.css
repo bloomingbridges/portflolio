@@ -318,9 +318,10 @@ footer .copy, footer .copy a {
   margin: 0 auto;
 }
 
-.article .content iframe {
+iframe {
+  max-width: 100%;
   margin: 0 auto 2em auto;
-  display: block;
+  display: inline-block;
 }
 
 .more, .date {
@@ -335,7 +336,7 @@ footer .copy, footer .copy a {
 /* portfolio */
 
 body.portfolio {
-  padding-bottom: 3em;
+  padding-bottom: 4em;
 }
 
 svg.mask {
@@ -697,6 +698,9 @@ code.lang-markdown .bullet {
     line-height: 3em;
     padding: 0;
     display: block;
+  }
+  body.portfolio {
+    padding-bottom: 3em;
   }
   .artwork_container {
     width: 300px;
