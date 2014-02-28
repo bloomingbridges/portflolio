@@ -189,6 +189,10 @@ body.article-detail footer a:hover {
   margin-bottom: 5em;
 }
 
+.centred {
+  text-align: center;
+}
+
 /* page footer */
 
 footer {

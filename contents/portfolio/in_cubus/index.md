@@ -23,6 +23,8 @@ Next to the ominously glowing cube, a projector shows faces on a rotating cube b
 
 ![Debugging session](debugging.png)
 
+<p class="caption">Debugging sessions</p>
+
 What you get on your screen is a flickering square and two-dimensional coordinates. Now what? The observant new media art gallery visitor will deduct that the coordinates can be traced back on the projection and that, if more people would join in, the cube's faces would eventually be made up of pixels.
 
 ![End result](production.png)
@@ -31,7 +33,7 @@ What it is, is the sculpture is transmitting a 50x50px small video stream, meani
 
 Well on its brightest day I had about 13 user simultaneously, which only shows how much of a megalomaniac I can be at times. It was however fun to explore new technologies: 
 
-I made something with _Arduino_ and a lamp and didn't electrocute myself, streaming binary data over _WebSockets_ and writing a networked visualisation in C++ (_openFrameworks_). The code is up online for your perusal on [GitHub](https://github.com/bloomingbridges/IN_CUBUS). If you're eager, you might even figure out what __IN//CUBUS__'s secret message was all about ;)
+I made something with _Arduino_ and a lamp and didn't electrocute myself, streaming binary data over _WebSockets_ and writing a networked visualisation in C++ (_openFrameworks_) and _MongoDB_ (for storing all the pixel values). The code is up online for your perusal on [GitHub](https://github.com/bloomingbridges/IN_CUBUS). If you're eager, you might even figure out what __IN//CUBUS__'s secret message was all about ;)
 
 ![IN//CUBUS Love](cubehug.jpg)
 
