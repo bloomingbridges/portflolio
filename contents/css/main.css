@@ -339,6 +339,11 @@ body.portfolio {
   padding-bottom: 4em;
 }
 
+body.overlayed {
+  height: 100%;
+  overflow: hidden;
+}
+
 svg.mask {
     position: absolute;
     top: 0;
@@ -467,6 +472,10 @@ svg.mask {
   background-color: rgb(210,137,227);
   border-bottom: 2px solid rgb(136,71,222);
   top: 0;
+}
+
+.filterBar #trigger {
+  display: none;
 }
 
 /* archive */
@@ -681,6 +690,13 @@ code.lang-markdown .bullet {
     padding: 0 !important;
     margin: 0;
   }
+  body.portfolio .header {
+    display: none;
+  }
+  body.overlayed .artwork_container {
+    background-color: magenta;
+    display: none !important;
+  }
   nav a:link {
     display: inline-block;
     line-height: 3em;
@@ -708,10 +724,12 @@ code.lang-markdown .bullet {
   }
   .artwork_preview {
     background: transparent;
+    position: relative;
   }
   .preview_container {
     width: 100%;
     margin: 0;
+    position: relative;
     box-shadow: none;
   }
   .preview_container img {
@@ -720,6 +738,34 @@ code.lang-markdown .bullet {
   }
   .preview_container .open, .preview_container .close {
     line-height: 4em;
+  }
+  .filterBar {
+    background-color: #fafafa;
+    border-top: 1px solid #ededed;
+  }
+  .filterBar #trigger {
+    color: rgb(210,137,227);
+    text-decoration: none;
+    display: block;
+    line-height: 4em;
+  }
+  .filterBar button {
+    display: none;
+  }
+  .filterBar.expanded {
+    top: 0;
+    position: relative;
+    overflow: auto;
+  }
+  .filterBar.hidden {
+    display: none;
+  }
+  .filterBar.expanded button {
+    display: block;
+    width: auto;
+    font-size: 1.5em;
+    margin: 0 auto 0.5em auto;
+    clear: both;
   }
 }
 

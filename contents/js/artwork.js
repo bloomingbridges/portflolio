@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             preview.style.display = "none";
             document.body.style.backgroundColor = "#fafafa";
             document.querySelector('.header').classList.remove('coloured');
-            document.body.style.overflow = "auto";
+            document.body.classList.remove('overlayed');
         }
     }
 
@@ -121,6 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     });
 
+    document.getElementById('trigger').addEventListener('click', function(event) {
+        event.preventDefault();
+        filterBar.classList.toggle('expanded');
+        document.body.classList.toggle('overlayed');
+    });
+
     [].forEach.call(document.querySelectorAll('.artwork_container a'), function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -129,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             previewShort.innerHTML = link.dataset.description || "";
             previewLink.href = link.href;
             setTimeout(function() {                
-                document.body.style.overflow = "hidden";
+                document.body.classList.add('overlayed');
                 filterBar.classList.add('hidden');
                 preview.style.display = "block";
             }, 200);
