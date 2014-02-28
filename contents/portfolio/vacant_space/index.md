@@ -1,7 +1,7 @@
 ---
 title: Vacant Space
 date: 2013
-category: illustration, game
+category: illustration, game, abandoned
 colour: "#64a3fc"
 slug: vacant_space
 description: "Illustration from an abandoned game prototype, which was meant to interactively tell the story of the my rejected job application."

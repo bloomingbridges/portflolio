@@ -1,7 +1,7 @@
 ---
 title: hanebouken game collective 
 date: 2013
-category: branding, game, featured
+category: branding, game, abandoned
 colour: "#9ec8be"
 slug: hanebouken
 description: "We wanted to disrupt the indie videogame scene, then we sort of lost interest.."

@@ -1,7 +1,7 @@
 ---
 title: Mayu
 date: 2013
-category: ui, android
+category: ui, android, wip
 colour: "#f7017e"
 slug: mayu
 description: "An exercise in fake UI and motion graphics, inspired by the <strong>Google Nexus</strong> packaging."

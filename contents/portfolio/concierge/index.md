@@ -1,7 +1,7 @@
 ---
 title: Concierge 
 date: 2011
-category: ui
+category: ui, abandoned
 colour: aquamarine
 slug: concierge
 description: "Adaptable kiosk interface for hotel foyers - cancelled due to lack of funding."

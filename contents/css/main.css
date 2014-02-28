@@ -330,6 +330,10 @@ footer .copy, footer .copy a {
 
 /* portfolio */
 
+body.portfolio {
+  padding-bottom: 3em;
+}
+
 svg.mask {
     position: absolute;
     top: 0;
@@ -340,7 +344,6 @@ svg.mask {
     width: 700px;
     overflow: auto;
     margin: 0 auto;
-    padding-bottom: 3em;
     position: relative;
     -webkit-transition: width .4s ease-out;
 }

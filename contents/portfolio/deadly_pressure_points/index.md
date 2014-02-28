@@ -1,7 +1,7 @@
 ---
 title: Deadly Pressure Points
 date: 2012
-category: illustration
+category: illustration, wip
 colour: "#3a4899"
 slug: deadly_pressure_points
 description: "Standing on the shoulders of snow golems. Tracing an obscure asset from the show <strong>Adventure Time</strong>."
