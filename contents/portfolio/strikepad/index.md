@@ -34,5 +34,5 @@ To clarify: My motivation wasn't dampened by the financial success of __Clear__,
 R.I.P.<br />
 __StrikePad__<br />
 2011 - 2012<br />
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 </p>

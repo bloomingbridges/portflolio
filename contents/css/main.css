@@ -176,6 +176,10 @@ body.article-detail footer a, body.article-detail footer h2, body.article-detail
   /*opacity: 0.8;*/
 }
 
+body.article-detail footer .nav a {
+  font-size: 2em;
+}
+
 body.article-detail footer a:hover {
   color: white;
   /*opacity: 1;*/
