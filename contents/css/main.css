@@ -395,8 +395,9 @@ svg.mask {
   width: 50%;
   text-align: center;
   text-decoration: none;
-  line-height: 2.25em;
+  line-height: 2.5em;
   border-top: 2px solid #ededed;
+  border-bottom: 2px solid #666;
   margin: 0;
   float: left;
 }
@@ -705,6 +706,9 @@ code.lang-markdown .bullet {
   .preview_container img {
     width: 100%;
     height: auto;
+  }
+  .preview_container .open, .preview_container .close {
+    line-height: 4em;
   }
 }
 
