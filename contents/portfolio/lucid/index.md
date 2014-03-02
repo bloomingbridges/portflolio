@@ -3,13 +3,17 @@ title: Lucid
 date: date
 category: 3d, mobile, game
 colour: "#cabc8b"
-description: "A research project exploring the viability of videogames which can be played in your sleep."
+description: "A research project exploring the practicality of videogames, which can be played in your sleep."
 slug: lucid
 ---
 
 ![Low-poly cello](cello.jpg)
 
-A research project exploring the viability of videogames which can be played in your sleep. Lucid is experienced in a full-dome environment using custom gear for head-tracking and player input using phone accelerometer sensors and a fair amount of Velcro&reg;.
+An ambitious research project exploring the practicality of videogames, which can be played in your sleep. Lucid is experienced in a full-dome environment using custom gear for head-tracking and player input using phone accelerometer sensors and a fair amount of Velcro&reg;. Due to this circumstance, the test subjects are required to be on-location
+
+"imbeciles!"
+
+Dream recording app, scientificity, settled for inducing clues to the test subjects.
 
 ![Moodboard](moodboard.jpg)
 
