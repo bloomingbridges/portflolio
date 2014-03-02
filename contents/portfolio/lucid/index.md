@@ -9,7 +9,11 @@ slug: lucid
 
 ![Low-poly cello](cello.jpg)
 
-An ambitious research project exploring the practicality of videogames, which can be played in your sleep. Lucid is experienced in a full-dome environment using custom gear for head-tracking and player input using phone accelerometer sensors and a fair amount of Velcro&reg;. Due to this circumstance, the test subjects are required to be on-location
+An ambitious research project exploring the practicality of videogames, which can be played in your sleep, conducted by _Ben Ashman_, _Sam Billingham_, _Luke Wotton_ and yours truly. __Lucid__ is experienced in a full-dome environment using custom gear for head-tracking and player input using phone accelerometer sensors and a fair amount of Velcro&reg;. 
+
+__Lucid's__ concept has undergone many an iteration. Originally, we just wanted to build upon [Zen Trials](/portfolio/zen_trials/index.html), add more challenges and adjust it for the dome screen. Inspired by leftover ideas from the previous project, we got really excited picturing 25 people going to sleep in the _IVT_, somehow collectively feeding into a visualisation no single one of them would ever be able to witness.
+
+unity, generative environments, game-aspect
 
 "imbeciles!"
 
