@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         previewShort = document.querySelector('.artwork_preview .description'),
         previewLink = document.querySelector('.artwork_preview .open'),
         filterBar = document.querySelector('.filterBar'),
+        filterButtons = document.querySelectorAll('.filterBar button'),
         filter = ["featured"];
 
     for (var a in artworks) {
@@ -16,8 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
             var colour = element.dataset.colour;
             maskArtwork(paper, source, colour);         
         }
-        filterArtworks();
     }
+    
+    if (!localStorage.getItem('filter'))
+        filter = ["featured"];
+    else
+        filter = retrievePreviousFilter()
+
+    // console.log("FILTER:", filter);
+    filterArtworks();
+    updateFilterButtonStates();
 
     function maskArtwork(element, source, colour) {
 
@@ -66,6 +75,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function updateFilterButtonStates() {
+        if (filter.length > 0) {
+            [].forEach.call(filterButtons, function(button) {
+                if (button.dataset.filterValue) {
+                    var filterValues = button.dataset.filterValue.split(", ")
+                      , passed = false;
+                    // console.log('###', filterValues);
+                    for (var i = filter.length-1; i >= 0; i--) {
+                        if (filterValues.indexOf(filter[i]) > -1)
+                            passed = true;  
+                    }
+                    if (passed)
+                        button.classList.add('active');      
+                }
+            });
+        } else {
+            console.log("blargh");
+            filterButtons[0].classList.add('active');
+        }
+    }
+
     function clearFilter() {
         filter = [];
         [].forEach.call(document.querySelectorAll('.artwork'), function(artwork) {
@@ -82,6 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.header').classList.remove('coloured');
     });
 
+    function retrievePreviousFilter() {
+        var lastFilter = localStorage.getItem('filter').split(',');
+        console.log("Cached filter: ", lastFilter);
+        return lastFilter;
+    }
+
     function dismissPreview(event) {
         if (event.target.classList.contains('artwork_preview') || 
             event.target.classList.contains('close') ) {
@@ -94,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    [].forEach.call(document.querySelectorAll('.filterBar button'), function(button) {
+    [].forEach.call(filterButtons, function(button) {
         button.addEventListener('click', function() {
             if (button.dataset.filterValue) {
                 var filterValues = button.dataset.filterValue.split(", ");
@@ -118,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('#clearFilterButton').classList.add('active');
                 clearFilter();
             }
+            localStorage.setItem('filter', filter);
         })
     });
 
