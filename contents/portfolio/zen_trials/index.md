@@ -4,8 +4,7 @@ date: 2012
 category: 3d, game
 colour: "#ff5759"
 slug: zen_trials
-description: "An experimental puzzle game, utilising the <em>Neurosky MindWave</em> headset and other biofeedback for input."
-draft: false
+description: "An experimental puzzle game, utilising a mind-reading headset for input."
 ---
 
 _Zen Trials_ was another product of the experimental _DAT 301 Real-time_ module at university, which asked four of us to come up with a mini project  involving inexpensive biofeedback sensors. I, who recently required a student license for _Unity Pro_, spent the following weekend modelling a little testing environment and learning C#, whereas everybody else investigated the APIs for the mind-reading headset from _Neurosky_.

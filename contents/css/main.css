@@ -468,7 +468,13 @@ svg.mask {
   -webkit-transition: all .2s;
 }
 
-.filterBar button:hover, .filterBar button.active {
+.filterBar button:hover {
+  background-color: rgb(200,153,207);
+  border-bottom: 2px solid rgb(139,106,182);
+  top: 0;
+}
+
+.filterBar button.active {
   background-color: rgb(210,137,227);
   border-bottom: 2px solid rgb(136,71,222);
   top: 0;

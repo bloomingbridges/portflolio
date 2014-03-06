@@ -16,3 +16,5 @@ Rudolf, the inventor as well as developer of the app approached me in 2013 to "l
 ![ZoomIt! Icons](indicators.png)
 
 It got featured in the [iDeveloper podcast](http://ideveloper.co/podcast095/) and is currently backed by a marketing campaign that I don't have my hands in. Check out the fancy [promotional website](http://playzoomit.com) they made!
+
+And of course, get the [app for free](https://itunes.apple.com/app/zoomit!/id612470010) while it's still hot!
