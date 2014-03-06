@@ -243,6 +243,8 @@ footer .about ul li {
 }
 
 footer .about a {
+  width: 5em;
+  display: inline-block;
   text-decoration: none;
   line-height: 1.25em;
   padding: 0.2em 0.4em;
@@ -252,7 +254,14 @@ footer .about a {
 
 footer .about a:hover {
   border-bottom: 3px solid #666;
+}
+
+footer .about a:hover:before {
   content: attr(title);
+}
+
+footer .about a:hover span {
+  display: none;
 }
 
 footer .copy {
@@ -721,6 +730,12 @@ code.lang-markdown .bullet {
     line-height: 3em;
     padding: 0;
     display: block;
+  }
+  footer .about a:before {
+    content: attr(title);
+  }
+  footer .about ul li a span {
+    display: none;
   }
   body.portfolio {
     padding-bottom: 3em;
