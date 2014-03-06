@@ -252,6 +252,7 @@ footer .about a {
 
 footer .about a:hover {
   border-bottom: 3px solid #666;
+  content: attr(title);
 }
 
 footer .copy {

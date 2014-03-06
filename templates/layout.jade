@@ -31,7 +31,8 @@ html(lang='en')
         block footer
           h2#connect Connect via
           section.about
-            !=contents['social.md'].html
+            include social
+            //- !=contents['social.md'].html
             //- !=contents['about.md'].html
           section.copy
             p #{ new Date().getFullYear() } #{ locals.owner } › 
