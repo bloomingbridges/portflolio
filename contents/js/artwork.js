@@ -9,6 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
         filterButtons = document.querySelectorAll('.filterBar button'),
         filter = ["featured"];
 
+
+
+    // Caching ////////////////////////////////////////////////////////////////
+
+    if (!localStorage.getItem('filter'))
+        filter = ["featured"];
+    else
+        filter = retrievePreviousFilter()
+
+
+
+    // Initialisation /////////////////////////////////////////////////////////
+
     for (var a in artworks) {
         if (typeof artworks[a] == "object") {
             var element = artworks[a];
@@ -18,15 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             maskArtwork(paper, source, colour);         
         }
     }
-    
-    if (!localStorage.getItem('filter'))
-        filter = ["featured"];
-    else
-        filter = retrievePreviousFilter()
-
-    // console.log("FILTER:", filter);
     filterArtworks();
     updateFilterButtonStates();
+
+
+
+    // Logic & Helpers ////////////////////////////////////////////////////////
 
     function maskArtwork(element, source, colour) {
 
@@ -107,10 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#clearFilterButton').classList.add('active');
     }
 
-    document.querySelector(".header").addEventListener('mouseover', function() {
-        document.body.style.backgroundColor = '#fafafa';
-        document.querySelector('.header').classList.remove('coloured');
-    });
 
     function retrievePreviousFilter() {
         var lastFilter = localStorage.getItem('filter').split(',');
@@ -118,53 +124,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return lastFilter;
     }
 
+
+
+    // Event Handlers /////////////////////////////////////////////////////////
+
     function dismissPreview(event) {
         if (event.target.classList.contains('artwork_preview') || 
             event.target.classList.contains('close') ) {
-            event.preventDefault();
-            filterBar.classList.remove('hidden');
-            preview.style.display = "none";
-            document.body.style.backgroundColor = "#fafafa";
-            document.querySelector('.header').classList.remove('coloured');
-            document.body.classList.remove('overlayed');
+                event.preventDefault();
+                filterBar.classList.remove('hidden');
+                preview.style.display = "none";
+                document.body.style.backgroundColor = "#fafafa";
+                document.querySelector('.header').classList.remove('coloured');
+                document.body.classList.remove('overlayed');
         }
     }
 
-    [].forEach.call(filterButtons, function(button) {
-        button.addEventListener('click', function() {
-            if (button.dataset.filterValue) {
-                var filterValues = button.dataset.filterValue.split(", ");
-                button.classList.toggle('active');
-                document.querySelector('#clearFilterButton').classList.remove('active');
-                if (!button.classList.contains("active")) {
-                    for (var i=filterValues.length-1; i>=0; i--) {
-                        filter.splice(filter.indexOf(filterValues[i]), 1);
-                    }
-                    if (filter.length === 0)
-                        clearFilter();
-                } else {
-                    for (var i=filterValues.length-1; i>=0; i--) {
-                        filter.push(filterValues[i]);
-                    }
-                }
-                console.log("FILTER:", filter);
-                filterArtworks();
-            }
-            else {
-                document.querySelector('#clearFilterButton').classList.add('active');
-                clearFilter();
-            }
-            localStorage.setItem('filter', filter);
-        })
-    });
-
-    document.getElementById('trigger').addEventListener('click', function(event) {
-        event.preventDefault();
-        filterBar.classList.toggle('expanded');
-        document.body.classList.toggle('overlayed');
-    });
-
-    [].forEach.call(document.querySelectorAll('.artwork_container a'), function(link) {
+    function attachPreviewHandler(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             previewImg.src = link.previousSibling.src;
@@ -177,9 +153,66 @@ document.addEventListener('DOMContentLoaded', function() {
                 preview.style.display = "block";
             }, 200);
         });
+    }
+
+    function onFilterButtonPushed(event) {
+        var button = event.target;
+        if (button.dataset.filterValue) {
+            var filterValues = button.dataset.filterValue.split(", ");
+            button.classList.toggle('active');
+            document.querySelector('#clearFilterButton').classList.remove('active');
+            if (!button.classList.contains("active")) {
+                for (var i=filterValues.length-1; i>=0; i--) {
+                    filter.splice(filter.indexOf(filterValues[i]), 1);
+                }
+                if (filter.length === 0)
+                    clearFilter();
+            } else {
+                for (var i=filterValues.length-1; i>=0; i--) {
+                    filter.push(filterValues[i]);
+                }
+            }
+            console.log("FILTER:", filter);
+            filterArtworks();
+        }
+        else {
+            document.querySelector('#clearFilterButton').classList.add('active');
+            clearFilter();
+        }
+        localStorage.setItem('filter', filter);
+    }
+
+
+
+    // Attaching Event Handlers ///////////////////////////////////////////////
+
+    [].forEach.call(filterButtons, function(button) {
+        button.addEventListener('click', onFilterButtonPushed);
     });
 
-    document.querySelector('.artwork_preview').addEventListener('click', dismissPreview);
-    document.querySelector('.preview_container .close').addEventListener('click', dismissPreview);
+    [].forEach.call(document.querySelectorAll('.artwork_container a'), attachPreviewHandler);
+
+    document.querySelector('.artwork_preview')
+            .addEventListener('click', dismissPreview);
+
+    document.querySelector('.preview_container .close')
+            .addEventListener('click', dismissPreview);
+
+
+
+    // Small Enhancements /////////////////////////////////////////////////////
+
+    document.getElementById('trigger')
+            .addEventListener('click', function(event) {
+                event.preventDefault();
+                filterBar.classList.toggle('expanded');
+                document.body.classList.toggle('overlayed');
+            });
+    
+    document.querySelector(".header")
+            .addEventListener('mouseover', function() {
+                document.body.style.backgroundColor = '#fafafa';
+                document.querySelector('.header').classList.remove('coloured');
+            });
 
 });
