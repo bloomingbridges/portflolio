@@ -7,7 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
         previewLink = document.querySelector('.artwork_preview .open'),
         filterBar = document.querySelector('.filterBar'),
         filterButtons = document.querySelectorAll('.filterBar button'),
-        filter = ["featured"];
+        filter = ["featured"],
+        rAfID;
+
+    var States = {
+        IDLE: 0,
+        EXPANDING: 1,
+        FLOATING: 2,
+        CONTRACTING: 3
+    };
 
 
 
@@ -34,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     filterArtworks();
     updateFilterButtonStates();
+    rAfID = requestAnimationFrame(animatePolygons);
 
     function generatePolygon() {
         var points = []
@@ -52,8 +61,34 @@ document.addEventListener('DOMContentLoaded', function() {
             s += point+"L";
         }
         s += points[0]+"Z";
-        console.log(s);
+        // console.log(s);
         return s;
+    }
+
+    function animatePolygons() {
+        [].forEach.call(artworks, function(artwork) {
+            var element = artwork.querySelector('svg')
+              , state = element.dataset.state;
+            if (state > States.IDLE) {
+                var s = Snap(element);
+                var mask = s.select("path");
+                switch (parseInt(state)) {
+
+                    case States.EXPANDING:
+                        if (mask) {
+                            // animate path
+                        }
+                        // console.log("ANIMATING");
+                        break;
+
+                    case States.CONTRACTING:
+                        element.dataset.state = States.IDLE;
+                        break;
+                }
+
+            }
+        });
+        rAfID = requestAnimationFrame(animatePolygons);
     }
 
     // Logic & Helpers ////////////////////////////////////////////////////////
@@ -64,11 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var image = s.image(source, 0, 0, 250, 250);
         var polygon = s.path(mask);
         var hitArea = s.circle(125,125,110);
-        s.circle(75,75,3);
-        s.circle(75,175,3);
-        s.circle(175,175,3);
-        s.circle(175,75,3);
+        // var dots = [s.circle(75,75,3), s.circle(75,175,3), s.circle(175,175,3), s.circle(175,75,3)];
+        element.dataset.state = States.IDLE;
         polygon.attr({ 
+            id: "polygon",
             fill: "#fff"
         });
         hitArea.attr({
@@ -78,12 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
         image.attr({
             mask: polygon
         });
-        hitArea.hover(function() {
+        element.addEventListener("mouseover", function(event) {
             document.body.style.backgroundColor = colour;
             document.querySelector('.header').classList.add('coloured');
-            element.dataset["state"] = "expanding";
-        }, function() {
-            element.dataset["state"] = "contracting";
+            element.dataset["state"] = States.EXPANDING;
+        });
+        element.addEventListener("mouseleave", function(event) {
+            element.dataset["state"] = States.CONTRACTING;
         });
 
     }
