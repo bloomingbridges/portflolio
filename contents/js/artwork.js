@@ -28,45 +28,62 @@ document.addEventListener('DOMContentLoaded', function() {
             var source = element.querySelector('img').src;
             var paper = element.querySelector('svg');
             var colour = element.dataset.colour;
-            maskArtwork(paper, source, colour);         
+            var path = generatePolygon();
+            maskArtwork(paper, source, colour, path);         
         }
     }
     filterArtworks();
     updateFilterButtonStates();
 
+    function generatePolygon() {
+        var points = []
+          , vertices = 4
+          , s = "M";
 
+        for (var p=0; p<vertices; p++) {
+            var offsetX = (p>1) ? 175 : 75
+              , offsetY = (p>0 && p<3) ? 175 : 75
+              , angle   = Math.random() * (Math.PI * 2)
+              , radius  = Math.floor(Math.random() * 30)
+              , x       = Math.floor( (offsetX) + (radius * Math.cos(angle)) )
+              , y       = Math.floor( (offsetY) + (radius * Math.sin(angle)) )
+              , point   = [x,y].toString();
+            points.push(point);
+            s += point+"L";
+        }
+        s += points[0]+"Z";
+        console.log(s);
+        return s;
+    }
 
     // Logic & Helpers ////////////////////////////////////////////////////////
 
-    function maskArtwork(element, source, colour) {
+    function maskArtwork(element, source, colour, mask) {
 
         var s = Snap(element);
         var image = s.image(source, 0, 0, 250, 250);
-        var polygon = s.circle(125, 125, 90);
-        var polygonHighlight = s.circle(125,125,110);
+        var polygon = s.path(mask);
+        var hitArea = s.circle(125,125,110);
+        s.circle(75,75,3);
+        s.circle(75,175,3);
+        s.circle(175,175,3);
+        s.circle(175,75,3);
         polygon.attr({ 
             fill: "#fff"
         });
-        polygonHighlight.attr({
-            fill: "magenta",
-            fillOpacity: 0,
-            stroke: "white",
-            strokeWidth: 5,
-            strokeOpacity: 0
+        hitArea.attr({
+            fill: "#fafafa",
+            fillOpacity: 0.1,
         });
         image.attr({
             mask: polygon
         });
-        polygonHighlight.hover(function() {
+        hitArea.hover(function() {
             document.body.style.backgroundColor = colour;
             document.querySelector('.header').classList.add('coloured');
-            polygon.animate({ r: 110 }, 300, mina.easeinout);
-            // polygonHighlight.animate({ strokeOpacity: 1 }, 400);
-            polygonHighlight.attr({strokeOpacity: 1});
+            element.dataset["state"] = "expanding";
         }, function() {
-            polygon.animate({ r: 90 }, 20, mina.easeinout);
-            // polygonHighlight.animate({ strokeOpacity: 0 }, 200);
-            polygonHighlight.attr({strokeOpacity: 0});
+            element.dataset["state"] = "contracting";
         });
 
     }
