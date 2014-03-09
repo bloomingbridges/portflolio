@@ -358,6 +358,9 @@ svg.mask {
     position: absolute;
     top: 0;
     left: 0;
+    width: 250px;
+    height: 250px;
+    display: block;
 }
 
 .artwork_container {
@@ -388,7 +391,7 @@ svg.mask {
     height: 100%;
     margin: 0 auto;
     display: block;
-    visibility: hidden;
+    /*visibility: hidden;*/
     position: absolute;
     left: 250px;
     top: -250px;

@@ -32,12 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (var a in artworks) {
         if (typeof artworks[a] == "object") {
-            var element = artworks[a];
-            var source = element.querySelector('img').src;
-            var paper = element.querySelector('svg');
-            var colour = element.dataset.colour;
-            var path = generatePolygon();
-            maskArtwork(paper, source, colour, path);         
+            var artwork = artworks[a];
+            var source = artwork.dataset.teaser;
+            var paper = artwork.querySelector('svg');
+            var colour = artwork.dataset.colour;
+            maskArtwork(paper, source, colour);         
         }
     }
     filterArtworks();
@@ -70,15 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var element = artwork.querySelector('svg')
               , state = element.dataset.state;
             if (state > States.IDLE) {
-                var s = Snap(element);
-                var mask = s.select("path");
+                var mask = element.querySelector('path');
                 switch (parseInt(state)) {
 
                     case States.EXPANDING:
                         if (mask) {
-                            // animate path
+                            mask.setAttribute("d", generatePolygon());
                         }
-                        // console.log("ANIMATING");
                         break;
 
                     case States.CONTRACTING:
@@ -93,25 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Logic & Helpers ////////////////////////////////////////////////////////
 
-    function maskArtwork(element, source, colour, mask) {
+    function maskArtwork(element, source, colour) {
 
-        var s = Snap(element);
-        var image = s.image(source, 0, 0, 250, 250);
-        var polygon = s.path(mask);
-        var hitArea = s.circle(125,125,110);
-        // var dots = [s.circle(75,75,3), s.circle(75,175,3), s.circle(175,175,3), s.circle(175,75,3)];
+        var polygon = generatePolygon();
+        var mask = element.querySelector('svg mask path');
+        mask.setAttribute("d", polygon);
         element.dataset.state = States.IDLE;
-        polygon.attr({ 
-            id: "polygon",
-            fill: "#fff"
-        });
-        hitArea.attr({
-            fill: "#fafafa",
-            fillOpacity: 0.1,
-        });
-        image.attr({
-            mask: polygon
-        });
         element.addEventListener("mouseover", function(event) {
             document.body.style.backgroundColor = colour;
             document.querySelector('.header').classList.add('coloured');
