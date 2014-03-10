@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function attachPreviewHandler(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            previewImg.src = link.previousSibling.src;
+            previewImg.src = link.parentNode.dataset.teaser;
             preview.querySelector('h2.title').innerText = link.title;
             previewShort.innerHTML = link.dataset.description || "";
             previewLink.href = link.href;
