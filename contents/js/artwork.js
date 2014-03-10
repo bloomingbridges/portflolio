@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
     updateFilterButtonStates();
     rAfID = requestAnimationFrame(animatePolygons);
 
+
+
+    // Masking ////////////////////////////////////////////////////////////////
+
     function generatePolygon() {
         var points = []
           , vertices = 4
@@ -64,32 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return s;
     }
 
-    function animatePolygons() {
-        [].forEach.call(artworks, function(artwork) {
-            var element = artwork.querySelector('svg')
-              , state = element.dataset.state;
-            if (state > States.IDLE) {
-                var mask = element.querySelector('path');
-                switch (parseInt(state)) {
-
-                    case States.EXPANDING:
-                        if (mask) {
-                            mask.setAttribute("d", generatePolygon());
-                        }
-                        break;
-
-                    case States.CONTRACTING:
-                        element.dataset.state = States.IDLE;
-                        break;
-                }
-
-            }
-        });
-        rAfID = requestAnimationFrame(animatePolygons);
-    }
-
-    // Logic & Helpers ////////////////////////////////////////////////////////
-
     function maskArtwork(element, source, colour) {
 
         var polygon = generatePolygon();
@@ -106,6 +84,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     }
+
+    function animatePolygons() {
+        [].forEach.call(artworks, function(artwork) {
+            var element = artwork.querySelector('svg')
+              , state = element.dataset.state;
+            if (state > States.IDLE) {
+                var mask = element.querySelector('path');
+                switch (parseInt(state)) {
+
+                    case States.EXPANDING:
+                        if (mask) {
+                            var path = parsePathString(mask.getAttribute('d'));
+                            element.dataset.state = 0;
+                            // mask.setAttribute("d", generatePolygon());
+                        }
+                        break;
+
+                    case States.CONTRACTING:
+                        element.dataset.state = States.IDLE;
+                        break;
+                }
+
+            }
+        });
+        rAfID = requestAnimationFrame(animatePolygons);
+    }
+
+    function parsePathString(string) {
+        var path = []
+          , runner = 1
+          , stop = 0;
+
+        // console.log("About to parse:", string);
+
+        while (true) {
+            var x = y = 0;
+
+            stop = string.indexOf(",", runner);
+            x = parseFloat(string.substring(runner, stop));
+            runner = stop + 1;
+
+            stop = parseFloat(string.indexOf("L", runner));
+
+            if (stop !== -1) {
+                y = parseFloat(string.substring(runner, stop));
+                path.push([x,y]);
+                runner = stop + 1;
+            } else {
+                break;
+            }
+
+        }
+
+        // console.log(path);
+        return path;
+    }
+
+
+
+    // Filtering //////////////////////////////////////////////////////////////
 
     function filterArtworks() {
         [].forEach.call(artworks, function(artwork) {
