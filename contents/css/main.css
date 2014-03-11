@@ -459,7 +459,14 @@ svg.mask {
   width: 100%;
   line-height: 2em;
   background-color: rgba(250,250,250,0.6);
+  /*-webkit-box-shadow: 0 -3px 3px rgba(25,25,25,0.2);*/
+  border-top: none;
   -webkit-transition: bottom .4s ease-out;
+  -webkit-transition: background-color 0.3s linear;
+}
+
+.filterBar.coloured {
+  border-top: 5px dashed rgba(250,250,250,0.6);
 }
 
 .filterBar.hidden {
@@ -467,14 +474,15 @@ svg.mask {
 }
 
 .filterBar button {
-  color: #fff;
+  color: rgb(221,226,214);
   font-size: 0.85em;
   border-radius: 3px;
   line-height: 1.5em;
   border: none;
-  background-color: rgb(190,190,190);
-  border-bottom: 4px solid rgb(143,143,143);
-  margin: 0.4em 0;
+  /*background-color: rgb(190,190,190);*/
+  background-color: transparent;
+  /*border-bottom: 4px solid rgb(143,143,143);*/
+  margin: 0.6em 0 0.5em 0;
   position: relative;
   top: -2px;
   cursor: pointer;
@@ -482,12 +490,14 @@ svg.mask {
 }
 
 .filterBar button:hover {
-  background-color: rgb(200,153,207);
-  border-bottom: 2px solid rgb(139,106,182);
+  color: #fff;
+  background-color: #666 ;/*rgb(200,153,207);*/
+  border-bottom: 2px solid rgb(221,226,214);
   top: 0;
 }
 
 .filterBar button.active {
+  color: #fff;
   background-color: rgb(210,137,227);
   border-bottom: 2px solid rgb(136,71,222);
   top: 0;

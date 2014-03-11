@@ -173,6 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         element.addEventListener("mouseover", function(event) {
             document.body.style.backgroundColor = colour;
+            filterBar.style.backgroundColor = colour;
+            filterBar.classList.add('coloured');
             document.querySelector('.header').classList.add('coloured');
             masks[element.id].setState(States.EXPANDING);
         });
@@ -315,6 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 preview.style.display = "none";
                 preview.scrollTop = 0;
                 document.body.style.backgroundColor = "#fafafa";
+                filterBar.style.backgroundColor = "rgba(250,250,250,0.6)";
+                filterBar.classList.remove('coloured');
                 document.querySelector('.header').classList.remove('coloured');
                 document.body.classList.remove('overlayed');
         }
@@ -393,6 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector(".header")
             .addEventListener('mouseover', function() {
                 document.body.style.backgroundColor = '#fafafa';
+                filterBar.style.backgroundColor = "rgba(250,250,250,0.6)";
                 document.querySelector('.header').classList.remove('coloured');
             });
 
