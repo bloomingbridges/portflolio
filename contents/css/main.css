@@ -363,6 +363,20 @@ svg.mask {
     display: block;
 }
 
+.artwork > a svg path[class=shadow] {
+  fill: rgb(221,226,214);
+  stroke: rgb(221,226,214);
+  stroke-location: "outside";
+  stroke-width: 20;
+  stroke-opacity: 0.2;
+}
+
+.artwork > a:visited svg path[class=shadow] {
+  stroke: rgb(210,137,227);
+  stroke-width: 20;
+  stroke-opacity: 1;
+}
+
 .artwork_container {
     width: 700px;
     overflow: auto;
@@ -447,7 +461,7 @@ svg.mask {
 .artwork_preview img {
   width: 360px;
   height: 360px;
-  background-color: aquamarine;
+  background-color: transparent;
   display: block;
 }
 
@@ -491,8 +505,8 @@ svg.mask {
 
 .filterBar button:hover {
   color: #fff;
-  background-color: #666 ;/*rgb(200,153,207);*/
-  border-bottom: 2px solid rgb(221,226,214);
+  background-color: #666; /*rgb(200,153,207);*/
+  border-bottom: 2px solid #333; /*rgb(221,226,214);*/
   top: 0;
 }
 
@@ -650,6 +664,16 @@ code.lang-markdown .bullet {
   .artwork_container {
     width: 700px;
   }
+  .artwork > a {
+    display: block;
+    overflow: auto;
+    width: 250px;
+    height: 250px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  .filterBar button {
+    color: #666;
+  }
 }
 
 @media (max-width: 690px) {
@@ -765,6 +789,7 @@ code.lang-markdown .bullet {
     overflow: auto;
     width: 250px;
     height: 250px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   .artwork_preview {
     background: transparent;

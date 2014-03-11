@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     filterArtworks();
     updateFilterButtonStates();
+    FastClick.attach(document.body);
     rAfID = requestAnimationFrame(animatePolygons);
 
 
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 case States.EXPANDING:
                     this.path = this.morph(this.path, this.innerTargets);
+                    wiggle = new Date();
                     break;
 
                 case States.FLOATING:
@@ -234,9 +236,8 @@ document.addEventListener('DOMContentLoaded', function() {
             x = point[0];
             y = point[1];
             if (noise) {
-                var r = Math.random() - 0.5;
-                x += (r < 0) ? (Math.sin(noise/300) * p) : (Math.cos(noise/300) * p);
-                y += (r < 0) ? (Math.cos(noise/300) * p) : (Math.sin(noise/300) * p);
+                x += (p % 2 == 0) ? (Math.sin(noise/300) * (p+1)) : (Math.cos(noise/300) * (p+1));
+                y += (p % 2 == 0) ? (Math.cos(noise/300) * (p+1)) : (Math.sin(noise/300) * (p+1));
             }
             if (p === 0) {
                 start = x+","+y;
@@ -336,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.classList.add('overlayed');
                 filterBar.classList.add('hidden');
                 preview.style.display = "block";
-            }, 200);
+            }, 300);
         });
     }
 

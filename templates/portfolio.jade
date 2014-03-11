@@ -36,7 +36,7 @@ html(lang='en')
             defs
               mask(id=item.slug+"_mask")
                 path(fill="#ffffff")
-            path(class="shadow", stroke="rgb(221,226,214)", stroke-width="5", style="opacity: 0.2;")
+            path(class="shadow", style="fill: transparent; stroke: rgb(221,226,214); stroke-width: 20;")
             image(xlink:href=imgURL, preserveAspectRatio="none", x="0", y="0", width="250", height="250", mask="url(#"+item.slug+"_mask)")
             //- circle(cx="125", cy="125", r="110", fill="#fafafa", style="fill-opacity: 0.1;")
       -   }
@@ -61,4 +61,5 @@ html(lang='en')
       button(data-filter-value="mobile, ios, android") Mobile
       button(data-filter-value="abandoned, wip, prototype") Untouched
 
+    script(src="js/vendor/fastclick.js")
     script(src="js/artwork.js")
