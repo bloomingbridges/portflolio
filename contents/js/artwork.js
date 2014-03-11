@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var artworks = document.querySelectorAll('.artwork'),
-        preview = document.querySelector('.artwork_preview'),
-        previewImg = document.querySelector('.artwork_preview #preview'),
-        previewShort = document.querySelector('.artwork_preview .description'),
-        previewLink = document.querySelector('.artwork_preview .open'),
-        filterBar = document.querySelector('.filterBar'),
-        filterButtons = document.querySelectorAll('.filterBar button'),
-        filter = ["featured"],
-        masks = {},
-        rAfID;
+    var artworks = document.querySelectorAll('.artwork')
+      , preview = document.querySelector('.artwork_preview')
+      , previewImg = document.querySelector('.artwork_preview #preview')
+      , previewShort = document.querySelector('.artwork_preview .description')
+      , previewLink = document.querySelector('.artwork_preview .open')
+      , filterBar = document.querySelector('.filterBar')
+      , filterButtons = document.querySelectorAll('.filterBar button')
+      , filter = ["featured"]
+      , masks = {}
+      , rAfID;
 
     var States = {
-        IDLE: 0,
-        EXPANDING: 1,
-        FLOATING: 2,
-        CONTRACTING: 3
+        IDLE: 0
+      , EXPANDING: 1
+      , FLOATING: 2
+      , SPLAT: 3
+      , CONTRACTING: 4
     };
 
 
@@ -45,18 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // Masking ////////////////////////////////////////////////////////////////
+    // Mask ///////////////////////////////////////////////////////////////////
 
-    function Mask(element, mask, shadow, path) {
+    function Mask(element, mask, shadow) {
         this.element = element;
         this.mask = mask;
         this.shadow = shadow;
-        this.original = this.path = path; 
+        this.original = generatePolygon(); 
+        this.path = this.original.slice();
         this.state = 0;
+        this.active = false;
         this.mask.setAttribute("d", constructPathString(this.original));
         this.shadow.setAttribute("d", constructPathString(this.original));
         return this;
     }
+
+    Mask.prototype.outerTargets = [[5,5],[5,245],[245,245],[245,5]];
 
     Mask.prototype.setState = function(newState) {
         this.state = newState;
@@ -68,23 +73,62 @@ document.addEventListener('DOMContentLoaded', function() {
             switch (this.state) {
 
                 case States.EXPANDING:
+                    this.path = this.morph(this.path, this.outerTargets);
+                    break;
+
+                case States.FLOATING:
                     for (var v=this.path.length-1; v>=0; v--) {
                         var vertex = this.path[v];
                         vertex[0] += (Math.random() - 0.5) * 5.0;
                         vertex[1] += (Math.random() - 0.5) * 5.0;
                         this.path[v] = vertex;
                     }
-                    var pathString = constructPathString(this.path);
-                    this.mask.setAttribute("d", pathString);
-                    this.shadow.setAttribute("d", pathString);
+                    break;
+
+                case States.SPLAT:
+                    this.path = this.outerTargets;
+                    this.active = true;
                     break;
 
                 case States.CONTRACTING:
-                    this.state = States.IDLE;
+                    if (!this.active) {
+                        this.path = this.morph(this.path, this.original);
+                        // this.reset();
+                    }
                     break;
             }
-
+            var pathString = constructPathString(this.path);
+            this.mask.setAttribute("d", pathString);
+            this.shadow.setAttribute("d", pathString);
         }
+    }
+
+    Mask.prototype.morph = function(path, target) {
+        var p = [], vertex, targetVertex;
+        for (var v=path.length-1; v>=0; v--) {
+            vertex = path[v];
+            targetVertex = target[v];
+            if (targetVertex[0] > vertex[0]) {
+                vertex[0] += (targetVertex[0] - vertex[0]) * 0.1;
+            } else {
+                vertex[0] -= (vertex[0] - targetVertex[0]) * 0.1;
+            }
+            if (targetVertex[1] > vertex[1]) {
+                vertex[1] += (targetVertex[1] - vertex[1]) * 0.1;
+            } else {
+                vertex[1] -= (vertex[1] - targetVertex[1]) * 0.1;
+            }
+            p.push([vertex[0], vertex[1]]);
+        }
+        return p.reverse();
+    }
+
+    Mask.prototype.reset = function() {
+        this.path = this.original.slice(0);
+        var pathString = constructPathString(this.path);
+        this.mask.setAttribute("d", pathString);
+        this.shadow.setAttribute("d", pathString);
+        this.setState(States.IDLE);
     }
 
     function generatePolygon() {
@@ -107,12 +151,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var mask = element.querySelector('svg mask path');
         var shadow = element.querySelector('svg path.shadow');
 
-        masks[element.id] = new Mask(element, mask, shadow, generatePolygon());
-        // element.dataset.state = States.IDLE;
+        masks[element.id] = new Mask(element, mask, shadow);
+
         element.addEventListener("mouseover", function(event) {
             document.body.style.backgroundColor = colour;
             document.querySelector('.header').classList.add('coloured');
             masks[element.id].setState(States.EXPANDING);
+        });
+        element.addEventListener("click", function(event) {
+            masks[element.id].setState(States.SPLAT);
         });
         element.addEventListener("mouseleave", function(event) {
             masks[element.id].setState(States.CONTRACTING);
@@ -218,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function retrievePreviousFilter() {
         var lastFilter = localStorage.getItem('filter').split(',');
-        console.log("Cached filter: ", lastFilter);
+        // console.log("Cached filter: ", lastFilter);
         return lastFilter;
     }
 
@@ -230,6 +277,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.classList.contains('artwork_preview') || 
             event.target.classList.contains('close') ) {
                 event.preventDefault();
+                masks[preview.dataset.current].active = false;
+                masks[preview.dataset.current].setState(States.CONTRACTING);
                 filterBar.classList.remove('hidden');
                 preview.style.display = "none";
                 document.body.style.backgroundColor = "#fafafa";
@@ -241,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function attachPreviewHandler(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
+            preview.dataset.current = link.parentNode.id;
             previewImg.src = link.parentNode.dataset.teaser;
             preview.querySelector('h2.title').innerText = link.title;
             previewShort.innerHTML = link.dataset.description || "";
