@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         filterBar = document.querySelector('.filterBar'),
         filterButtons = document.querySelectorAll('.filterBar button'),
         filter = ["featured"],
+        masks = {},
         rAfID;
 
     var States = {
@@ -34,9 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof artworks[a] == "object") {
             var artwork = artworks[a];
             var source = artwork.dataset.teaser;
-            var paper = artwork.querySelector('svg');
             var colour = artwork.dataset.colour;
-            maskArtwork(paper, source, colour);         
+            maskArtwork(artwork, source, colour);         
         }
     }
     filterArtworks();
@@ -47,67 +47,84 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Masking ////////////////////////////////////////////////////////////////
 
+    function Mask(element, mask, shadow, path) {
+        this.element = element;
+        this.mask = mask;
+        this.shadow = shadow;
+        this.original = this.path = path; 
+        this.state = 0;
+        this.mask.setAttribute("d", constructPathString(this.original));
+        this.shadow.setAttribute("d", constructPathString(this.original));
+        return this;
+    }
+
+    Mask.prototype.setState = function(newState) {
+        this.state = newState;
+        // console.log("STATE CHANGED TO: " + newState + " { " + this.element.id + " }");
+    }
+
+    Mask.prototype.update = function() {
+        if (this.state > States.IDLE) {
+            switch (this.state) {
+
+                case States.EXPANDING:
+                    for (var v=this.path.length-1; v>=0; v--) {
+                        var vertex = this.path[v];
+                        vertex[0] += (Math.random() - 0.5) * 5.0;
+                        vertex[1] += (Math.random() - 0.5) * 5.0;
+                        this.path[v] = vertex;
+                    }
+                    var pathString = constructPathString(this.path);
+                    this.mask.setAttribute("d", pathString);
+                    this.shadow.setAttribute("d", pathString);
+                    break;
+
+                case States.CONTRACTING:
+                    this.state = States.IDLE;
+                    break;
+            }
+
+        }
+    }
+
     function generatePolygon() {
         var points = []
-          , vertices = 4
-          , s = "M";
-
+          , vertices = 4;
         for (var p=0; p<vertices; p++) {
             var offsetX = (p>1) ? 175 : 75
               , offsetY = (p>0 && p<3) ? 175 : 75
               , angle   = Math.random() * (Math.PI * 2)
               , radius  = Math.floor(Math.random() * 30)
               , x       = Math.floor( (offsetX) + (radius * Math.cos(angle)) )
-              , y       = Math.floor( (offsetY) + (radius * Math.sin(angle)) )
-              , point   = [x,y].toString();
-            points.push(point);
-            s += point+"L";
+              , y       = Math.floor( (offsetY) + (radius * Math.sin(angle)) );
+            points.push([x,y]);
         }
-        s += points[0]+"Z";
-        // console.log(s);
-        return s;
+        return points;
     }
 
     function maskArtwork(element, source, colour) {
 
-        var polygon = generatePolygon();
         var mask = element.querySelector('svg mask path');
-        mask.setAttribute("d", polygon);
-        element.dataset.state = States.IDLE;
+        var shadow = element.querySelector('svg path.shadow');
+
+        masks[element.id] = new Mask(element, mask, shadow, generatePolygon());
+        // element.dataset.state = States.IDLE;
         element.addEventListener("mouseover", function(event) {
             document.body.style.backgroundColor = colour;
             document.querySelector('.header').classList.add('coloured');
-            element.dataset["state"] = States.EXPANDING;
+            masks[element.id].setState(States.EXPANDING);
         });
         element.addEventListener("mouseleave", function(event) {
-            element.dataset["state"] = States.CONTRACTING;
+            masks[element.id].setState(States.CONTRACTING);
         });
 
     }
 
     function animatePolygons() {
-        [].forEach.call(artworks, function(artwork) {
-            var element = artwork.querySelector('svg')
-              , state = element.dataset.state;
-            if (state > States.IDLE) {
-                var mask = element.querySelector('path');
-                switch (parseInt(state)) {
-
-                    case States.EXPANDING:
-                        if (mask) {
-                            var path = parsePathString(mask.getAttribute('d'));
-                            element.dataset.state = 0;
-                            // mask.setAttribute("d", generatePolygon());
-                        }
-                        break;
-
-                    case States.CONTRACTING:
-                        element.dataset.state = States.IDLE;
-                        break;
-                }
-
-            }
-        });
+        // loop through masks
+        for (m in masks) {
+            masks[m].update();
+        }
         rAfID = requestAnimationFrame(animatePolygons);
     }
 
@@ -131,15 +148,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 y = parseFloat(string.substring(runner, stop));
                 path.push([x,y]);
                 runner = stop + 1;
-            } else {
-                break;
-            }
+            } else { break; }
 
         }
 
         // console.log(path);
         return path;
     }
+
+    function constructPathString(points) {
+        var s = "M";
+        for (var p=0; p<points.length; p++) {
+            s += points[p].toString()+"L";
+        }
+        s += points[0].toString()+"Z";
+        return s;
+    } 
 
 
 
