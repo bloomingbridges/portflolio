@@ -61,53 +61,55 @@ document.addEventListener('DOMContentLoaded', function() {
         return this;
     }
 
+    Mask.prototype.innerTargets = [[45,45],[45,205],[205,205],[205,45]];
     Mask.prototype.outerTargets = [[5,5],[5,245],[245,245],[245,5]];
 
     Mask.prototype.setState = function(newState) {
         this.state = newState;
         // console.log("STATE CHANGED TO: " + newState + " { " + this.element.id + " }");
-    }
+    };
 
     Mask.prototype.update = function() {
+        var pathString, wiggle = false;
         if (this.state > States.IDLE) {
             switch (this.state) {
 
                 case States.EXPANDING:
-                    this.path = this.morph(this.path, this.outerTargets);
+                    this.path = this.morph(this.path, this.innerTargets);
                     break;
 
                 case States.FLOATING:
-                    for (var v=this.path.length-1; v>=0; v--) {
-                        var vertex = this.path[v];
-                        vertex[0] += (Math.random() - 0.5) * 5.0;
-                        vertex[1] += (Math.random() - 0.5) * 5.0;
-                        this.path[v] = vertex;
-                    }
+                    wiggle = new Date();
                     break;
 
                 case States.SPLAT:
-                    this.path = this.outerTargets;
+                    this.path = this.morph(this.path, this.outerTargets);
                     this.active = true;
                     break;
 
                 case States.CONTRACTING:
                     if (!this.active) {
                         this.path = this.morph(this.path, this.original);
-                        // this.reset();
                     }
                     break;
             }
-            var pathString = constructPathString(this.path);
+            pathString = constructPathString(this.path, wiggle);
             this.mask.setAttribute("d", pathString);
             this.shadow.setAttribute("d", pathString);
         }
-    }
+    };
 
     Mask.prototype.morph = function(path, target) {
-        var p = [], vertex, targetVertex;
+        var p = []
+          , vertex
+          , targetVertex
+          , checksum = 0
+          , progress = 0;
+
         for (var v=path.length-1; v>=0; v--) {
             vertex = path[v];
             targetVertex = target[v];
+            checksum += targetVertex[0] + targetVertex[1];
             if (targetVertex[0] > vertex[0]) {
                 vertex[0] += (targetVertex[0] - vertex[0]) * 0.1;
             } else {
@@ -119,17 +121,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 vertex[1] -= (vertex[1] - targetVertex[1]) * 0.1;
             }
             p.push([vertex[0], vertex[1]]);
+            progress += vertex[0] + vertex[1];
+        }
+        if (Math.floor(checksum) === Math.round(progress)) {
+            this.advanceState();
         }
         return p.reverse();
+    };
+
+    Mask.prototype.advanceState = function() {
+        switch (this.state) {
+            case States.EXPANDING:
+                this.setState(States.FLOATING);
+                break;
+            case States.CONTRACTING:
+                if (!this.active)
+                    this.reset();
+                break;
+        }
     }
 
     Mask.prototype.reset = function() {
+        this.setState(States.IDLE);
         this.path = this.original.slice(0);
         var pathString = constructPathString(this.path);
         this.mask.setAttribute("d", pathString);
         this.shadow.setAttribute("d", pathString);
-        this.setState(States.IDLE);
-    }
+    };
 
     function generatePolygon() {
         var points = []
@@ -168,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function animatePolygons() {
-        // loop through masks
         for (m in masks) {
             masks[m].update();
         }
@@ -203,12 +220,28 @@ document.addEventListener('DOMContentLoaded', function() {
         return path;
     }
 
-    function constructPathString(points) {
-        var s = "M";
+    function constructPathString(points, noise) {
+        var s = "M"
+          , point
+          , start
+          , x
+          , y;
+
         for (var p=0; p<points.length; p++) {
-            s += points[p].toString()+"L";
+            point = points[p];
+            x = point[0];
+            y = point[1];
+            if (noise) {
+                var r = Math.random() - 0.5;
+                x += (r < 0) ? (Math.sin(noise/300) * p) : (Math.cos(noise/300) * p);
+                y += (r < 0) ? (Math.cos(noise/300) * p) : (Math.sin(noise/300) * p);
+            }
+            if (p === 0) {
+                start = x+","+y;
+            }
+            s += x+","+y+"L";
         }
-        s += points[0].toString()+"Z";
+        s += start+"Z";
         return s;
     } 
 
@@ -246,7 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         } else {
-            console.log("blargh");
             filterButtons[0].classList.add('active');
         }
     }
@@ -281,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 masks[preview.dataset.current].setState(States.CONTRACTING);
                 filterBar.classList.remove('hidden');
                 preview.style.display = "none";
+                preview.scrollTop = 0;
                 document.body.style.backgroundColor = "#fafafa";
                 document.querySelector('.header').classList.remove('coloured');
                 document.body.classList.remove('overlayed');

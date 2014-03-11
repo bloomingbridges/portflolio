@@ -709,8 +709,14 @@ code.lang-markdown .bullet {
     padding: 0 !important;
     margin: 0;
   }
+  body.portfolio {
+    padding-bottom: 3em;
+  }
   body.portfolio .header {
     display: none;
+  }
+  body.portfolio.overlayed {
+    padding-bottom: 0 !important;
   }
   body.overlayed .artwork_container {
     background-color: magenta;
@@ -740,12 +746,15 @@ code.lang-markdown .bullet {
   footer .about ul li a span {
     display: none;
   }
-  body.portfolio {
-    padding-bottom: 3em;
-  }
   .artwork_container {
     width: 300px;
     margin-bottom: 3em;
+  }
+  .artwork > a {
+    display: block;
+    overflow: auto;
+    width: 250px;
+    height: 250px;
   }
   .artwork_preview {
     background: transparent;
@@ -762,6 +771,7 @@ code.lang-markdown .bullet {
     height: auto;
   }
   .preview_container .open, .preview_container .close {
+    color: rgb(210,137,227);
     line-height: 4em;
   }
   .filterBar {
