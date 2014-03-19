@@ -17,10 +17,10 @@ html(lang='en')
       div.content-wrap
         block header
           a(href=locals.url, class="logo")
-            div
-              img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
-              h1=locals.name
-              p.description= locals.description
+            img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
+            h1=locals.name
+            p.description= locals.description
+        block navigation
           nav
             a(href="portfolio.html", title="Selected Word", class="active") Selected Work
             a(href="about.html", title="About me") About myself
@@ -53,7 +53,7 @@ html(lang='en')
         a.open(href="#", title="read more") open
 
     section.filterBar
-      a#trigger(href="#filters") Filters
+      a#trigger(href="#filters") Show more
       button(id="clearFilterButton") All
       button(data-filter-value="featured") Featured
       button(data-filter-value="ui, web") User Interface

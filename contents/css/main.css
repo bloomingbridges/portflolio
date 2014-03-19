@@ -750,7 +750,8 @@ code.lang-markdown .bullet {
   body.portfolio {
     padding-bottom: 3em;
   }
-  body.portfolio .header {
+  .page .header .logo h1, .page .header .logo p,
+  .portfolio .header .logo h1, .portfolio .header .logo p {
     display: none;
   }
   body.portfolio.overlayed {

@@ -18,11 +18,11 @@ html(lang='en')
     header.header
       div.content-wrap
         block header
-          div.logo
-            h1
-              img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
-              a(href=locals.url)= locals.name
+          a(href=locals.url, class="logo")
+            img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
+            h1=locals.name
             p.description= locals.description
+        block navigation
           include ../contents/nav.jade
     block content
     footer
