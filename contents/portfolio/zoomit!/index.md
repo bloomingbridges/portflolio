@@ -2,7 +2,7 @@
 title: ZoomIt!
 date: 2012
 category: branding, ui, ios, game
-colour: "rgb(255,205,0)"
+colour: "rgb(255,170,5)"
 slug: zoomit!
 description: "A two-player mobile guessing game utilising the phone's camera roll as well as the player's imagination."
 ---

@@ -399,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .addEventListener('mouseover', function() {
                 document.body.style.backgroundColor = '#fafafa';
                 filterBar.style.backgroundColor = "rgba(250,250,250,0.6)";
+                filterBar.classList.remove('coloured');
                 document.querySelector('.header').classList.remove('coloured');
             });
 

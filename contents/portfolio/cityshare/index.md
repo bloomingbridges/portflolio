@@ -2,7 +2,7 @@
 title: CityShare 
 date: 10-2013
 category: ui, ios
-colour: "#14d8f5"
+colour: "rgb(0,185,208)"
 slug: cityshare
 description: "Lending a hand to the Dutch startup <strong>CityShare</strong>, or: how to design for <em>iOS 7</em> in just seven days time."
 ---

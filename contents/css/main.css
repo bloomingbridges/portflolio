@@ -483,6 +483,10 @@ svg.mask {
   border-top: 5px dashed rgba(250,250,250,0.6);
 }
 
+.filterBar.coloured button {
+  color: rgba(250,250,250,0.6);
+}
+
 .filterBar.hidden {
   bottom: -200px;
 }

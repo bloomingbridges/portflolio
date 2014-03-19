@@ -1,6 +1,16 @@
 
 extends layout
 
+block header
+  a(href=locals.url, class="logo")
+    div
+      img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
+      h1=locals.name
+      p.description= locals.description
+  nav
+    a(href="portfolio.html", title="Selected Word") Selected Work
+    a(href="about.html", title="About me", class="active") About myself
+
 block content
   div#content
     div.content-wrap

@@ -16,12 +16,14 @@ html(lang='en')
     header.header
       div.content-wrap
         block header
-          div.logo
-            h1
+          a(href=locals.url, class="logo")
+            div
               img(src='css/logo.png', alt='bloomingbridges emblem', class='emblem') 
-              a(href=locals.url)= locals.name
-            p.description= locals.description
-          include ../contents/nav.jade
+              h1=locals.name
+              p.description= locals.description
+          nav
+            a(href="portfolio.html", title="Selected Word", class="active") Selected Work
+            a(href="about.html", title="About me") About myself
     section.artwork_container
       - var artworks = env.helpers.getPortfolioItems(contents)
       - for (item in artworks) {
