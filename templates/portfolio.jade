@@ -53,7 +53,7 @@ html(lang='en')
         a.open(href="#", title="read more") open
 
     section.filterBar
-      a#trigger(href="#filters") Show more
+      a#trigger(href="#filters") Filters
       button(id="clearFilterButton") All
       button(data-filter-value="featured") Featured
       button(data-filter-value="ui, web") User Interface
@@ -63,5 +63,6 @@ html(lang='en')
       button(data-filter-value="mobile, ios, android") Mobile
       button(data-filter-value="abandoned, wip, prototype") Untouched
 
+    script(src="js/vendor/requestAnimationFrame.min.js")
     script(src="js/vendor/fastclick.js")
     script(src="js/artwork.js")

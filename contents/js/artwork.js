@@ -390,13 +390,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('trigger')
             .addEventListener('click', function(event) {
-                cancelRequestAnimationFrame(rAfID);
+                // cancelAnimationFrame(rAfID);
                 event.preventDefault();
                 filterBar.classList.toggle('expanded');
                 document.body.classList.toggle('overlayed');
-                window.setTimeout(function() {
-                    rAfID = requestAnimationFrame(animatePolygons);
-                }, 300);
+                // window.setTimeout(function() {
+                //     rAfID = requestAnimationFrame(animatePolygons);
+                // }, 300);
             });
     
     document.querySelector(".header")

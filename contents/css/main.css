@@ -354,6 +354,10 @@ body.overlayed {
   overflow: hidden;
 }
 
+body.overlayed .header {
+  display: none;
+}
+
 svg.mask {
     position: absolute;
     top: 0;
@@ -824,13 +828,24 @@ code.lang-markdown .bullet {
     display: block;
     line-height: 4em;
   }
+  .filterBar #trigger:before {
+    content: "Expand ";
+  }
   .filterBar button {
     display: none;
+    top: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .filterBar button.active {
+    top: 0;
   }
   .filterBar.expanded {
     top: 0;
     position: relative;
     overflow: auto;
+  }
+  .filterBar.expanded #trigger:before {
+    content: "Hide ";
   }
   .filterBar.hidden {
     display: none;
