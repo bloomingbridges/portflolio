@@ -2,7 +2,7 @@
 template: page.jade
 ---
 
-_Herzliche willkommen, bienvenue, välkommen, welcome!_
+_Herzlich willkommen_, _bienvenue_, _välkommen_, _welcome_!
 
 You've stumbled upon the tenth iteration of my web presence, me being recent _Digital Art & Technology_ graduate __Florian Brueckner__.
 
