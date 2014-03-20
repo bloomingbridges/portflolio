@@ -354,10 +354,6 @@ body.overlayed {
   overflow: hidden;
 }
 
-body.overlayed .header {
-  display: none;
-}
-
 svg.mask {
     position: absolute;
     top: 0;
@@ -760,6 +756,9 @@ code.lang-markdown .bullet {
   }
   body.portfolio.overlayed {
     padding-bottom: 0 !important;
+  }
+  body.overlayed .header {
+    display: none;
   }
   body.overlayed .artwork_container {
     background-color: magenta;
