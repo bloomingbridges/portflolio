@@ -28,11 +28,11 @@ I was happily working on it for a few months whenever I had a spare moment,  add
 
 Then one day in February, my friend Chris's [outlet](http://realmacsoftware.com) released a _surprisingly similar_ app on the app store with incredible traction. The development of __StrikePad__ came to an abrupt end as a result.
 
-To clarify: My motivation wasn't dampened by the financial success of __Clear__, or the betrayal of a good friend. There was no point in finishing something, which was doomed to only ever be seen as a clone of something bigger. People wouldn't see the app for what it is, the vision, the benefit and it saddens me that I couldn't be the one introducing these radical new ideas to the millions of _iOS 5_ users out there.
+To clarify: My motivation wasn't dampened by the financial success of __Clear__. There was no point in finishing something, which was doomed to only ever be seen as a clone of something bigger. People wouldn't see the app for what it is, the vision, the benefit and it saddens me that I couldn't be the one introducing these radical new ideas to the millions of _iOS 5_ users out there.
 
-<p class="centred">
+<!-- <p class="centred">
 R.I.P.<br />
 __StrikePad__<br />
 2011 - 2012<br />
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-</p>
+</p> -->

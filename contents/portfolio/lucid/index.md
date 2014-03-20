@@ -27,9 +27,9 @@ In preparation for the trials one would have to sleep with a mobile phone runnin
 
 ![Impressions](screenshots.jpg)
 
-There were a total of three trials in __Lucid__ and - sadly - only one volunteer who actually used the app on the day of the presentation. _Saul Hardman_ was the lucky guy, getting to put on our unwieldy dome input device and work through the puzzles.
+There were a total of three trials in __Lucid__. We even had a volunteer who actually used the app on the day of the presentation: _Saul Hardman_ was the lucky guy, getting to put on our unwieldy dome input device and work through the puzzles.
 
-Well, he did not succeed. That's the thing with experiments, but sometimes you just need to go for it. Feel free to read the full story on the [project blog](http://sambillingham.github.io/lucid/), study the [source code](https://github.com/Sambillingham/lucid) and download the complimentary 
+He did not succeed. That's the thing with experiments, but sometimes you just need to go for it. Feel free to read the full story on the [project blog](http://sambillingham.github.io/lucid/), study the [source code](https://github.com/Sambillingham/lucid) and download the complimentary 
 
 [Design Document (PDF, 1,9MB)][1] - [Director's Cut (PDF, 4,2MB)][2]
 

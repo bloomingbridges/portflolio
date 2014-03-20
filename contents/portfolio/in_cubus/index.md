@@ -31,7 +31,7 @@ What you get on your screen is a flickering square and two-dimensional coordinat
 
 What it is, is the sculpture is transmitting a 50x50px small video stream, meaning one would need about _2500_ devices and place them in a grid next to each other (coordinates!) in order to see the full video message. What's more, is that whenever someone new joins, he unknowingly contributes to the content of the video as it is being dynamically generated in the background.
 
-Well on its brightest day I had about 13 user simultaneously, which only shows how much of a megalomaniac I can be at times. It was however fun to explore new technologies: I..
+On its brightest day (the opening night) I had maybe about 13 users simultaneously. Still, it is always fun to explore new technologies: I..
 
 - ..made something with _Arduino_ and an _IKEA_ lamp and didn't electrocute myself!
 - ..was carelessly streaming binary data over _WebSockets_ 
