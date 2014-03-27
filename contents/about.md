@@ -8,7 +8,7 @@ You've stumbled upon the tenth iteration of my web presence, me being recent _Di
 
 I'm a young _Interaction Designer_ from the heart of Europe and a firm believer in world betterment by the means of quality digital entertainment and tangible experiences. My work touches many disciplines: from _New Media Art_, over _User Interface Design_ to _Game Development_.
 
-On a related note, I am also a proud member of [Appsterdam][1] and founder of the [hanebouken game collective][2]. In my former life, he's probably been a penguin.
+On a related note, I am also a proud member of [Appsterdam][1] and founder of the [hanebouken game collective][2]. In my former life, I've probably been a penguin.
 
 <img id="avatar" alt="Kinect Scan Avatar" src="images/mashup_me.jpg" />
 
