@@ -11,10 +11,14 @@ Around the time when the first _CSS3_ goodies such as _text-shadow_ and _transit
 
 So I put my curiosity to good work and produced a little local web app / browser extension that would show me a Japanese word on a solid colour background. If that sounds really basic to you, it's probably because it was. By hovering over it, additional information like pronunciation, _hiragana_ spelling and translation would be revealed, along with the possibility to change the theme in real-time (CSS transitions + localStorage).
 
-Now here come the bad news.. for one, the [site I was using](http://www.japanesewordoftheday.com) to scrape my daily symbols off stopped updating their _RSS_ feed regularly. Further, due to a disagreement with my last hosting provider I no longer have access to the original files that I know of as the browser extension was never completed.
+![Default screen](barebones.png)
 
-This screenshot of the theme I made in the style of [James King's old website](http://skymist.co.uk) is the single remaining proof of existence. 
+<del>Now here come the bad news.. for one, the [site I was using](http://www.japanesewordoftheday.com) to scrape my daily symbols off stopped updating their _RSS_ feed regularly. Further, due to a disagreement with my last hosting provider I no longer have access to the original files that I know of as the browser extension was never completed.</del>
 
-![Skymist theme](screenshot.png)
+<del>This screenshot of the theme I made in the style of [James King's old website](http://skymist.co.uk) is the single remaining proof of existence.</del>
 
-<p class="caption">Let me assure you it was beautiful while it lasted</p>
+I've only just recovered an archive of old repositories, including the JWOTD chrome extension! The feed issue has been fixed, the code extracted and pushed to [GitHub](https://github.com/bloomingbridges/JWOTD) for your perusal.
+
+![Themes](themes.jpg)
+
+<p class="caption">JWOTD comes with a bunch of different themes to choose from. Add your own with just a few lines of [LESS](http://lesscss.org)</p>
