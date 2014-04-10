@@ -10,9 +10,9 @@ I'm a young _Interaction Designer_ from the heart of Europe and a firm believer 
 
 On a related note, I am also a proud member of [Appsterdam][1] and founder of the [hanebouken game collective][2]. In my former life, I've probably been a penguin.
 
-<img id="avatar" alt="Kinect Scan Avatar" src="images/mashup_me.jpg" />
+<img id="avatar" alt="Recent Avatar" src="images/bridget_me.jpg" />
 
-<p class="caption">Picture of my likeness to follow</p>
+<p class="caption">Picture of my likeness</p>
 
 This website was built upon Johan Nordberg's static site generator [Wintersmith][3], the source is available on my [GitHub profile][4] (Spoiler warning! - Work in progress..).
 
